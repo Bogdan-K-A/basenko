@@ -22,6 +22,15 @@ import {
   Mail,
 } from "lucide-react";
 
+const navBar = [
+  { label: "Про курс", id: "about" },
+  { label: "Програма", id: "program" },
+  { label: "Переваги", id: "benefits" },
+  { label: "Відгуки", id: "testimonials" },
+  { label: "Тарифи", id: "pricing" },
+  { label: "FAQ", id: "faq" },
+];
+
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -144,42 +153,15 @@ function App() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Про курс
-              </button>
-              <button
-                onClick={() => scrollToSection("program")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Програма
-              </button>
-              <button
-                onClick={() => scrollToSection("benefits")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Переваги
-              </button>
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Відгуки
-              </button>
-              <button
-                onClick={() => scrollToSection("pricing")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Тарифи
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                FAQ
-              </button>
+              {navBar.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
 
             {/* Contact Info & CTA */}
@@ -218,42 +200,15 @@ function App() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="px-4 py-4 space-y-4">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Про курс
-              </button>
-              <button
-                onClick={() => scrollToSection("program")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Програма
-              </button>
-              <button
-                onClick={() => scrollToSection("benefits")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Переваги
-              </button>
-              <button
-                onClick={() => scrollToSection("testimonials")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Відгуки
-              </button>
-              <button
-                onClick={() => scrollToSection("pricing")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Тарифи
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                FAQ
-              </button>
+              {navBar.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
 
               <div className="pt-4 border-t border-gray-200">
                 <div className="space-y-2 text-sm text-gray-600 mb-4">
@@ -425,7 +380,7 @@ function App() {
               </div>
 
               {/* Floating Stats */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <div className="absolute -top-[30px] sm:-top-4 -right-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                 <div className="text-center">
                   <div className="text-2xl font-bold">98%</div>
                   <div className="text-xs opacity-90">Задоволених клієнтів</div>
@@ -913,14 +868,14 @@ function App() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
               Не впевнений? Спробуй безкоштовне тренування!
             </p>
             <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">
               Безкоштовне тренування
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -1023,7 +978,10 @@ function App() {
             завдяки бігу
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div
+            onClick={() => scrollToSection("pricing")}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
               Почати зараз
               <ArrowRight className="w-5 h-5" />
