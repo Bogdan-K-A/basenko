@@ -20,7 +20,9 @@ import {
   Menu,
   Phone,
   Mail,
+  TrendingUp,
 } from "lucide-react";
+import ImageGallery from "./components/ImageGallery";
 
 const navBar = [
   { label: "Про курс", id: "about" },
@@ -29,6 +31,81 @@ const navBar = [
   { label: "Відгуки", id: "testimonials" },
   { label: "Тарифи", id: "pricing" },
   { label: "FAQ", id: "faq" },
+];
+const courseModules = [
+  {
+    day: "Понеділок",
+    title: "Біг + Техніка",
+    description:
+      "Відпрацювання правильної техніки бігу, постановка стопи, робота з ритмом дихання",
+    icon: Target,
+    color: "blue",
+    image:
+      "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+  },
+  {
+    day: "Вівторок",
+    title: "Силові + Стабілізація",
+    description:
+      "Функціональні вправи для зміцнення м'язів кора, ніг та профілактики травм",
+    icon: Zap,
+    color: "orange",
+    image:
+      "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+  },
+  {
+    day: "Четвер",
+    title: "Біг + Інтервали",
+    description:
+      "Високоінтенсивні інтервальні тренування для розвитку швидкості та витривалості",
+    icon: Heart,
+    color: "red",
+    image:
+      "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+  },
+  {
+    day: "Субота",
+    title: "Лонгран / Груповий забіг",
+    description:
+      "Довгі пробіжки для розвитку аеробної витривалості та групова мотивація",
+    icon: Users,
+    color: "green",
+    image:
+      "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+  },
+];
+
+const galleryImages = [
+  {
+    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Тренування на стадіоні",
+    caption: "Групові тренування на свіжому повітрі",
+  },
+  {
+    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Біг у парку",
+    caption: "Індивідуальні тренування в парку",
+  },
+  {
+    src: "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Розминка перед бігом",
+    caption: "Правильна розминка - основа безпечного бігу",
+  },
+  {
+    src: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Фініш забігу",
+    caption: "Досягнення цілей разом з командою",
+  },
+  {
+    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Тренування взимку",
+    caption: "Тренуємося цілий рік незалежно від погоди",
+  },
+  {
+    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Медитація після бігу",
+    caption: "Відновлення та релаксація після тренування",
+  },
 ];
 
 function App() {
@@ -405,6 +482,214 @@ function App() {
         </div>
       </section>
 
+      {/* Problem Section */}
+      <section id="problem" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 text-gray-800">
+              Знайомі відчуття?
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-red-400">
+                <div className="text-4xl mb-4">😔</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">
+                  Немає мотивації
+                </h3>
+                <p className="text-gray-600">
+                  Хочеш почати бігати, але не знаєш з чого розпочати. Кожен раз
+                  відкладаєш "на завтра"
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-orange-400">
+                <div className="text-4xl mb-4">🏃‍♂️</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">
+                  Швидко втомлюєшся
+                </h3>
+                <p className="text-gray-600">
+                  Після кількох хвилин бігу важко дихати, болять ноги і хочеться
+                  зупинитися
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-blue-400">
+                <div className="text-4xl mb-4">❓</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">
+                  Немає плану
+                </h3>
+                <p className="text-gray-600">
+                  Не розумієш, як правильно тренуватися, щоб бачити прогрес і не
+                  травмуватися
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-16">
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                <strong className="text-orange-500">Ти не один!</strong> 87%
+                людей кидають біг через перший місяць через відсутність
+                правильної методики та підтримки.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section
+        id="solution"
+        className="py-20 bg-gradient-to-r from-blue-500 to-cyan-400"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                Рішення вже існує!
+              </h2>
+              <p className="text-xl text-blue-50 max-w-3xl mx-auto">
+                "Формула Бігу" - це науково обґрунтована система тренувань, яка
+                допоможе тобі стати бігуном за 8 тижнів
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 p-3 rounded-full">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      Персональний підхід
+                    </h3>
+                    <p className="text-blue-50">
+                      Індивідуальний план тренувань під твій рівень підготовки
+                      та цілі
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 p-3 rounded-full">
+                    <Heart className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      Без перевантажень
+                    </h3>
+                    <p className="text-blue-50">
+                      Поступове нарощування навантаження без ризику травм
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 p-3 rounded-full">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      24/7 підтримка
+                    </h3>
+                    {/* <p className="text-blue-50">
+                      Постійна підтримка тренера через мобільний додаток
+                    </p> */}
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold mb-6 text-white text-center">
+                  Що ти отримуєш:
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    "24 живі онлайн тренування",
+                    "Персональний план харчування",
+                    "Доступ до закритої спільноти",
+                    // "Мобільний додаток з трекінгом",
+                    "Сертифікат після завершення",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-300" />
+                      <span className="text-white font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Trainer */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <div className="bg-gradient-to-br from-orange-400 to-red-400 w-80 h-80 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl">
+                  СБ
+                </div>
+              </div>
+
+              <div>
+                <div className="inline-flex items-center gap-2 bg-orange-100 px-4 py-2 rounded-full mb-6">
+                  <Award className="w-5 h-5 text-orange-500" />
+                  <span className="text-orange-700 font-semibold">
+                    Майстер спорту України
+                  </span>
+                </div>
+
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+                  Сергій Басенко
+                </h2>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  Професійний тренер з бігу з 15-річним досвідом. Підготував 12
+                  олімпійців, понад 50 майстрів спорту та допоміг більше ніж
+                  2000 людей досягти своїх цілей у бігу.
+                </p>
+
+                <div className="grid grid-cols-2 gap-6 mb-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-orange-500">
+                      10+
+                    </div>
+                    <div className="text-gray-600">років досвіду</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-orange-500">
+                      1000+
+                    </div>
+                    <div className="text-gray-600">учнів</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-orange-500">12</div>
+                    <div className="text-gray-600">олімпійців</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-orange-500">
+                      50+
+                    </div>
+                    <div className="text-gray-600">майстрів спорту</div>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <Quote className="w-8 h-8 text-orange-500 mb-4" />
+                  <p className="text-gray-700 italic text-lg">
+                    "Моя місія - показати кожній людині, що біг може стати
+                    джерелом радості та здоров'я, а не страждання. Правильна
+                    методика - ключ до успіху!"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Monthly Program Section */}
       <section
         id="program"
@@ -422,48 +707,7 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {[
-              {
-                day: "Понеділок",
-                title: "Біг + Техніка",
-                description:
-                  "Відпрацювання правильної техніки бігу, постановка стопи, робота з ритмом дихання",
-                icon: Target,
-                color: "blue",
-                image:
-                  "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
-              },
-              {
-                day: "Вівторок",
-                title: "Силові + Стабілізація",
-                description:
-                  "Функціональні вправи для зміцнення м'язів кора, ніг та профілактики травм",
-                icon: Zap,
-                color: "orange",
-                image:
-                  "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
-              },
-              {
-                day: "Четвер",
-                title: "Біг + Інтервали",
-                description:
-                  "Високоінтенсивні інтервальні тренування для розвитку швидкості та витривалості",
-                icon: Heart,
-                color: "red",
-                image:
-                  "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
-              },
-              {
-                day: "Субота",
-                title: "Лонгран / Груповий забіг",
-                description:
-                  "Довгі пробіжки для розвитку аеробної витривалості та групова мотивація",
-                icon: Users,
-                color: "green",
-                image:
-                  "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
-              },
-            ].map((training, index) => {
+            {courseModules.map((training, index) => {
               return (
                 <div key={index} className="group">
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
@@ -509,7 +753,7 @@ function App() {
           </div>
 
           {/* Progress Indicator */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          {/* <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Твій прогрес по тижнях
@@ -560,7 +804,7 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Additional Info */}
           <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
@@ -594,6 +838,110 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Results/Benefits */}
+      <section id="results" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+                Твої результати через 8 тижнів
+              </h2>
+              <p className="text-xl text-gray-600">
+                Гарантовані зміни при виконанні програми курсу
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-green-400 to-green-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <TrendingUp className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Пробіжиш 5-10 км
+                </h3>
+                <p className="text-gray-600">
+                  Без задишки і дискомфорту долатимеш дистанції, про які раніше
+                  не мріяв
+                </p>
+              </div>
+
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-blue-400 to-blue-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <Heart className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Покращиш здоров'я
+                </h3>
+                <p className="text-gray-600">
+                  Нормалізується тиск, покращиться робота серця, зміцниться
+                  імунітет
+                </p>
+              </div>
+
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-purple-400 to-purple-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <Zap className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Отримаєш енергію
+                </h3>
+                <p className="text-gray-600">
+                  Підвищиться працездатність, покращиться настрій і якість сну
+                </p>
+              </div>
+
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <Target className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Схуднеш на 5-12 кг
+                </h3>
+                <p className="text-gray-600">
+                  Природне спалювання жиру та формування красивого рельєфу тіла
+                </p>
+              </div>
+
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-red-400 to-red-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <Award className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Підвищиш самооцінку
+                </h3>
+                <p className="text-gray-600">
+                  Відчуття гордості за досягнення та нова впевненість у собі
+                </p>
+              </div>
+
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-teal-400 to-teal-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
+                  <Users className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  Знайдеш однодумців
+                </h3>
+                <p className="text-gray-600">
+                  Станеш частиною спільноти активних і мотивованих людей
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-16">
+              <div className="inline-flex items-center gap-2 bg-green-100 px-6 py-3 rounded-full">
+                <CheckCircle className="w-6 h-6 text-green-600" />
+                <span className="text-green-800 font-semibold text-lg">
+                  Гарантія результату або повернення коштів
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Gallery */}
+      <ImageGallery images={galleryImages} title="Наші тренування в дії" />
 
       {/* Key Benefits Section */}
       <section id="benefits" className="py-20 bg-white">
@@ -679,7 +1027,7 @@ function App() {
                   "Відеоуроки з техніки бігу та розминки",
                   "Доступ до закритої спільноти бігунів",
                   "Щотижневі прямі ефіри з тренером",
-                  "Мобільний додаток для відстеження прогресу",
+                  // "Мобільний додаток для відстеження прогресу",
                   "Індивідуальні консультації (2 рази на місяць)",
                   "Сертифікат після завершення курсу",
                 ].map((feature, index) => (
@@ -690,11 +1038,11 @@ function App() {
                 ))}
               </div>
 
-              <div className="mt-10">
+              {/* <div className="mt-10">
                 <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                   Детальніше про курс
                 </button>
-              </div>
+              </div> */}
             </div>
 
             <div className="relative">
@@ -817,7 +1165,7 @@ function App() {
                   "12-тижневий план тренувань",
                   "Голосовий супровід",
                   "Доступ до спільноти",
-                  "Мобільний додаток",
+                  // "Мобільний додаток",
                   "Базова підтримка",
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
