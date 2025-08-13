@@ -28,6 +28,19 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    agreement: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -41,6 +54,66 @@ function App() {
     }
     setIsMobileMenuOpen(false); // Close mobile menu after clicking
   };
+
+  // Form handlers
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = e.target;
+    if (type === "checkbox") {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Reset form and show success
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        agreement: false,
+      });
+      setSubmitSuccess(true);
+
+      // Close modal after 2 seconds
+      setTimeout(() => {
+        setIsContactFormOpen(false);
+        setSubmitSuccess(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+      agreement: false,
+    });
+    setSubmitSuccess(false);
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Header */}
@@ -51,7 +124,12 @@ function App() {
             <div className="flex items-center">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
+                  {/* <Target className="w-6 h-6 text-white" /> */}
+                  <img
+                    src="./images/logo.png"
+                    alt="Formula Bigu"
+                    className="w-10 h-10"
+                  />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">
@@ -111,12 +189,15 @@ function App() {
                   <Phone className="w-4 h-4" />
                   <span>+380 (67) 123-45-67</span>
                 </div>
-                <div className="flex items-center gap-1">
+                {/* <div className="flex items-center gap-1">
                   <Mail className="w-4 h-4" />
                   <span>info@formulabigu.com</span>
-                </div>
+                </div> */}
               </div>
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+              <button
+                onClick={() => scrollToSection("pricing")}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              >
                 Почати зараз
               </button>
             </div>
@@ -180,10 +261,10 @@ function App() {
                     <Phone className="w-4 h-4" />
                     <span>+380 (67) 123-45-67</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  {/* <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4" />
                     <span>info@formulabigu.com</span>
-                  </div>
+                  </div> */}
                 </div>
                 <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-full font-semibold">
                   Почати зараз
@@ -235,7 +316,10 @@ function App() {
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                <button
+                  onClick={() => scrollToSection("pricing")}
+                  className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                >
                   Приєднатися зараз
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -424,47 +508,49 @@ function App() {
                 image:
                   "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
               },
-            ].map((training, index) => (
-              <div key={index} className="group">
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={training.image}
-                      alt={training.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-
-                    {/* Day Badge */}
-                    <div
-                      className={`absolute top-4 left-4 bg-${training.color}-500 text-white px-3 py-1 rounded-full text-sm font-semibold`}
-                    >
-                      {training.day}
-                    </div>
-
-                    {/* Icon */}
-                    <div
-                      className={`absolute bottom-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center`}
-                    >
-                      <training.icon
-                        className={`w-6 h-6 text-${training.color}-600`}
+            ].map((training, index) => {
+              return (
+                <div key={index} className="group">
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={training.image}
+                        alt={training.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                    </div>
-                  </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {training.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {training.description}
-                    </p>
+                      {/* Day Badge */}
+                      <div
+                        className={`absolute top-4 left-4 bg-${training.color}-500 text-white px-3 py-1 rounded-full text-sm font-semibold`}
+                      >
+                        {training.day}
+                      </div>
+
+                      {/* Icon */}
+                      <div
+                        className={`absolute bottom-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center`}
+                      >
+                        <training.icon
+                          className={`w-6 h-6 text-${training.color}-600`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {training.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {training.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Progress Indicator */}
@@ -1071,13 +1157,19 @@ function App() {
           </div>
         </div>
       )}
-      {/* Form Modal */}
+      {/* Contact Form Modal */}
       {isContactFormOpen && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 animate-in fade-in duration-300"
+          onClick={() => setIsContactFormOpen(false)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="text-xl font-bold">
-                Знайомство з курсом "Формула Бігу"
+              <h3 className="text-xl font-bold text-gray-900">
+                Форма зворотного зв'язку
               </h3>
               <button
                 onClick={() => setIsContactFormOpen(false)}
@@ -1088,14 +1180,209 @@ function App() {
             </div>
 
             <div className="p-6">
-              <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <PlayCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <div className="text-center mb-6">
+                <MessageCircle className="w-12 h-12 text-blue-600 mx-auto mb-3" />
+                <p className="text-gray-600">
+                  Маєте питання? Заповніть форму і ми зв'яжемося з вами
+                  найближчим часом!
+                </p>
+              </div>
+
+              {submitSuccess ? (
+                <div className="text-center py-8">
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Дякуємо за повідомлення!
+                  </h3>
                   <p className="text-gray-600">
-                    Тут буде ваше промо-відео курсу
-                    <br />
-                    (30-45 секунд знайомства з "Формулою Бігу")
+                    Ми зв'яжемося з вами найближчим часом.
                   </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="firstName"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        Ім'я *
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Ваше ім'я"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="lastName"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        Прізвище
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        placeholder="Ваше прізвище"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Телефон
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="+380 (67) 123-45-67"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Тема звернення
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    >
+                      <option value="">Оберіть тему</option>
+                      <option value="course-info">Інформація про курс</option>
+                      <option value="pricing">Питання по тарифам</option>
+                      <option value="technical">Технічна підтримка</option>
+                      <option value="partnership">Співпраця</option>
+                      <option value="other">Інше</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Повідомлення *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                      placeholder="Опишіть ваше питання або повідомлення..."
+                    ></textarea>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      id="agreement"
+                      name="agreement"
+                      checked={formData.agreement}
+                      onChange={handleInputChange}
+                      required
+                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    />
+                    <label
+                      htmlFor="agreement"
+                      className="text-sm text-gray-600"
+                    >
+                      Я погоджуюся з{" "}
+                      <a href="#" className="text-blue-600 hover:underline">
+                        умовами обробки персональних даних
+                      </a>
+                    </label>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:transform-none flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Надсилання...
+                        </>
+                      ) : (
+                        <>
+                          <MessageCircle className="w-5 h-5" />
+                          Надіслати повідомлення
+                        </>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        resetForm();
+                        setIsContactFormOpen(false);
+                      }}
+                      className="px-6 py-3 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 rounded-lg font-semibold transition-colors duration-300"
+                    >
+                      Скасувати
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <div className="text-center text-sm text-gray-500">
+                  <p className="mb-2">Або зв'яжіться з нами безпосередньо:</p>
+                  <div className="flex justify-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-blue-600" />
+                      <span>+380 (67) 123-45-67</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-blue-600" />
+                      <span>info@formulabigu.com</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
