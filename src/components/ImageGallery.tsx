@@ -2,15 +2,43 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface ImageGalleryProps {
-  images: Array<{
-    src: string;
-    alt: string;
-    caption?: string;
-  }>;
   title: string;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
+const galleryImages = [
+  {
+    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Тренування на стадіоні",
+    caption: "Групові тренування на свіжому повітрі",
+  },
+  {
+    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Біг у парку",
+    caption: "Індивідуальні тренування в парку",
+  },
+  {
+    src: "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Розминка перед бігом",
+    caption: "Правильна розминка - основа безпечного бігу",
+  },
+  {
+    src: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Фініш забігу",
+    caption: "Досягнення цілей разом з командою",
+  },
+  {
+    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Тренування взимку",
+    caption: "Тренуємося цілий рік незалежно від погоди",
+  },
+  {
+    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    alt: "Медитація після бігу",
+    caption: "Відновлення та релаксація після тренування",
+  },
+];
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ title }) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -24,11 +52,13 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
   };
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
+    );
   };
 
   return (
@@ -47,7 +77,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 
           {/* Image Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((image, index) => (
+            {galleryImages.map((image, index) => (
               <div
                 key={index}
                 className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
@@ -105,16 +135,16 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 
                 {/* Image */}
                 <img
-                  src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
+                  src={galleryImages[currentIndex].src}
+                  alt={galleryImages[currentIndex].alt}
                   className="max-w-full max-h-full object-contain rounded-lg"
                 />
 
                 {/* Caption */}
-                {images[currentIndex].caption && (
+                {galleryImages[currentIndex].caption && (
                   <div className="absolute -bottom-12 left-0 right-0 text-center">
                     <p className="text-white text-lg">
-                      {images[currentIndex].caption}
+                      {galleryImages[currentIndex].caption}
                     </p>
                   </div>
                 )}
@@ -122,7 +152,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
                 {/* Image Counter */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2">
                   <span className="text-white text-sm">
-                    {currentIndex + 1} / {images.length}
+                    {currentIndex + 1} / {galleryImages.length}
                   </span>
                 </div>
               </div>
