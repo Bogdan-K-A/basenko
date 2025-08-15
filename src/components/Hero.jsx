@@ -1,12 +1,6 @@
 import { ArrowRight, Award, Clock, Play, Users } from "lucide-react";
 
-const Hero = ({
-  scrollToSection,
-  setIsVideoModalOpen,
-}: {
-  scrollToSection: (sectionId: string) => void;
-  setIsVideoModalOpen: (isOpen: boolean) => void;
-}) => {
+const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">

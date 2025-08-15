@@ -6,13 +6,7 @@ import {
   Users,
 } from "lucide-react";
 
-const FinalCta = ({
-  setIsContactFormOpen,
-  scrollToSection,
-}: {
-  setIsContactFormOpen: (isOpen: boolean) => void;
-  scrollToSection: (section: string) => void;
-}) => {
+const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
   return (
     <>
       {" "}

@@ -8,26 +8,6 @@ const FormModal = ({
   handleInputChange,
   handleSubmit,
   resetForm,
-}: {
-  setIsContactFormOpen: (isOpen: boolean) => void;
-  submitSuccess: boolean;
-  isSubmitting: boolean;
-  formData: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    subject: string;
-    message: string;
-    agreement: boolean;
-  };
-  handleInputChange: (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => void;
-  handleSubmit: (e: React.FormEvent) => void;
-  resetForm: () => void;
 }) => {
   return (
     <>
@@ -110,41 +90,42 @@ const FormModal = ({
                   </div>
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Телефон
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="+380 (67) 123-45-67"
-                  />
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      Телефон
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="+380 (67) 123-45-67"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -152,18 +133,19 @@ const FormModal = ({
                     htmlFor="subject"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
-                    Тема звернення
+                    Тема *
                   </label>
                   <select
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
                     <option value="">Оберіть тему</option>
-                    <option value="course-info">Інформація про курс</option>
-                    <option value="pricing">Питання по тарифам</option>
+                    <option value="general">Загальне питання</option>
+                    <option value="course">Питання про курс</option>
                     <option value="technical">Технічна підтримка</option>
                     <option value="partnership">Співпраця</option>
                     <option value="other">Інше</option>
@@ -186,10 +168,10 @@ const FormModal = ({
                     rows={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                     placeholder="Опишіть ваше питання або повідомлення..."
-                  ></textarea>
+                  />
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <input
                     type="checkbox"
                     id="agreement"
@@ -197,21 +179,19 @@ const FormModal = ({
                     checked={formData.agreement}
                     onChange={handleInputChange}
                     required
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="agreement" className="text-sm text-gray-600">
-                    Я погоджуюся з{" "}
-                    <a href="#" className="text-blue-600 hover:underline">
-                      умовами обробки персональних даних
-                    </a>
+                    Я погоджуюся з обробкою персональних даних та умовами
+                    використання *
                   </label>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <div className="flex gap-4 pt-4">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:transform-none flex items-center justify-center gap-2"
+                    className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -220,8 +200,8 @@ const FormModal = ({
                       </>
                     ) : (
                       <>
-                        <MessageCircle className="w-5 h-5" />
                         Надіслати повідомлення
+                        <MessageCircle className="w-5 h-5" />
                       </>
                     )}
                   </button>
@@ -231,27 +211,28 @@ const FormModal = ({
                       resetForm();
                       setIsContactFormOpen(false);
                     }}
-                    className="px-6 py-3 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 rounded-lg font-semibold transition-colors duration-300"
+                    className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
                   >
                     Скасувати
                   </button>
                 </div>
               </form>
             )}
+          </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <div className="text-center text-sm text-gray-500">
-                <p className="mb-2">Або зв'яжіться з нами безпосередньо:</p>
-                <div className="flex justify-center gap-6">
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-blue-600" />
-                    <span>+380 (67) 123-45-67</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-blue-600" />
-                    <span>info@formulabigu.com</span>
-                  </div>
-                </div>
+          {/* Contact Information */}
+          <div className="bg-gray-50 p-6 border-t">
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Контактна інформація
+            </h4>
+            <div className="space-y-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                <span>+380 (67) 123-45-67</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                <span>info@formulabigu.com</span>
               </div>
             </div>
           </div>

@@ -1,22 +1,22 @@
 import { useState } from "react";
 
-import ImageGallery from "./components/ImageGallery";
-import Hero from "./components/Hero";
-import Header from "./components/Header";
-import Problem from "./components/Problem";
-import Solution from "./components/Solution";
-import About from "./components/About";
-import Program from "./components/Program";
-import Results from "./components/Results";
-import Benefits from "./components/Benefits";
-import Course from "./components/Course";
-import Testimonials from "./components/Testimonials";
-import Pricing from "./components/Pricing";
-import Faq from "./components/Faq";
-import FinalCta from "./components/FinalCta";
-import Footer from "./components/Footer";
-import VideoModal from "./components/VideoModal";
-import FormModal from "./components/FormModal";
+import ImageGallery from "./components/ImageGallery.jsx";
+import Hero from "./components/Hero.jsx";
+import Header from "./components/Header.jsx";
+import Problem from "./components/Problem.jsx";
+import Solution from "./components/Solution.jsx";
+import About from "./components/About.jsx";
+import Program from "./components/Program.jsx";
+import Results from "./components/Results.jsx";
+import Benefits from "./components/Benefits.jsx";
+import Course from "./components/Course.jsx";
+import Testimonials from "./components/Testimonials.jsx";
+import Pricing from "./components/Pricing.jsx";
+import Faq from "./components/Faq.jsx";
+import FinalCta from "./components/FinalCta.jsx";
+import Footer from "./components/Footer.jsx";
+import VideoModal from "./components/VideoModal.jsx";
+import FormModal from "./components/FormModal.jsx";
 
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -36,7 +36,7 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const headerHeight = 64; // Height of fixed header
@@ -51,21 +51,17 @@ function App() {
   };
 
   // Form handlers
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
+  const handleInputChange = (e) => {
     const { name, value, type } = e.target;
     if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
+      const checked = e.target.checked;
       setFormData((prev) => ({ ...prev, [name]: checked }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 

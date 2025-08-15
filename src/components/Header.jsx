@@ -8,15 +8,7 @@ const navBar = [
   { label: "FAQ", id: "faq" },
 ];
 
-const Header = ({
-  scrollToSection,
-  isMobileMenuOpen,
-  setIsMobileMenuOpen,
-}: {
-  scrollToSection: (sectionId: string) => void;
-  isMobileMenuOpen: boolean;
-  setIsMobileMenuOpen: (isOpen: boolean) => void;
-}) => {
+const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <>
       {" "}

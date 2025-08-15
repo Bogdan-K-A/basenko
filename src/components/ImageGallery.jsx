@@ -1,9 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-
-interface ImageGalleryProps {
-  title: string;
-}
 
 const galleryImages = [
   {
@@ -38,11 +34,11 @@ const galleryImages = [
   },
 ];
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ title }) => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+const ImageGallery = ({ title }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openLightbox = (index: number) => {
+  const openLightbox = (index) => {
     setSelectedImage(index);
     setCurrentIndex(index);
   };

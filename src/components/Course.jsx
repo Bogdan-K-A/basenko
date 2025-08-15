@@ -1,10 +1,6 @@
 import { CheckCircle, PlayCircle } from "lucide-react";
 
-const Course = ({
-  setIsVideoModalOpen,
-}: {
-  setIsVideoModalOpen: (isOpen: boolean) => void;
-}) => {
+const Course = ({ setIsVideoModalOpen }) => {
   return (
     <>
       <section
