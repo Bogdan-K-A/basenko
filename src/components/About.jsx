@@ -21,7 +21,7 @@ const About = () => {
                 <div className="inline-flex items-center gap-2 bg-orange-100 px-4 py-2 rounded-full mb-6">
                   <Award className="w-5 h-5 text-orange-500" />
                   <span className="text-orange-700 font-semibold">
-                    Майстер спорту України
+                    Заслужений тренер України
                   </span>
                 </div>
 

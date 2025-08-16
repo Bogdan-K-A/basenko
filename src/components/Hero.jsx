@@ -8,7 +8,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="./images/1.jpg"
+            src="./images/5.png"
             alt="Running training background"
             className="w-full h-full object-cover"
           />
@@ -32,7 +32,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl  leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl  leading-relaxed max-w-2xl text-white">
                 Онлайн-тренування з голосовим супроводом, технікою, мотивацією
                 та планом, який доводить до результату з будь-якої точки світу.
               </p>
@@ -41,7 +41,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection("pricing")}
-                  className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Приєднатися зараз
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
