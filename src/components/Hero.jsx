@@ -20,7 +20,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+              <h1 className="text-3xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
                 Твій біг. Твій ритм. Твій результат.
                 <br />
                 <span className="text-gray-800 text-3xl sm:text-4xl lg:text-5xl mt-4 block">
