@@ -1,13 +1,30 @@
 import { Target, Heart, Phone, CheckCircle } from "lucide-react";
 
+const solution = [
+  "24 живі онлайн тренування",
+  "Персональний план харчування",
+  "Доступ до закритої спільноти",
+  "Сертифікат після завершення",
+];
+
 const Solution = () => {
   return (
     <>
       <section
         id="solution"
-        className="py-20 bg-gradient-to-r from-blue-500 to-cyan-400"
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url("/images/3.webp")',
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        <div className="container mx-auto px-4">
+        {/* Затемняющий оверлей для лучшей читаемости текста */}
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
@@ -58,9 +75,6 @@ const Solution = () => {
                     <h3 className="text-2xl font-bold mb-3 text-white">
                       24/7 підтримка
                     </h3>
-                    {/* <p className="text-blue-50">
-                      Постійна підтримка тренера через мобільний додаток
-                    </p> */}
                   </div>
                 </div>
               </div>
@@ -70,13 +84,7 @@ const Solution = () => {
                   Що ти отримуєш:
                 </h3>
                 <div className="space-y-4">
-                  {[
-                    "24 живі онлайн тренування",
-                    "Персональний план харчування",
-                    "Доступ до закритої спільноти",
-                    // "Мобільний додаток з трекінгом",
-                    "Сертифікат після завершення",
-                  ].map((item, index) => (
+                  {solution.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="w-6 h-6 text-green-300" />
                       <span className="text-white font-medium">{item}</span>

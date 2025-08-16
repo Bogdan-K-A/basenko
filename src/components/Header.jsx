@@ -11,7 +11,6 @@ const navBar = [
 const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <>
-      {" "}
       <header className="fixed top-0 left-0 right-0 z-40 bg-gray-500/35 backdrop-blur-sm border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -55,26 +54,16 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
               <div className="flex items-center gap-4 text-sm text-white">
                 <div className="flex items-center gap-1">
                   <Phone className="w-4 h-4" />
-                  <span>+380 (67) 123-45-67</span>
+                  <a href="tel:+380671234567">+380 (67) 123-45-67</a>
                 </div>
-                {/* <div className="flex items-center gap-1">
-                  <Mail className="w-4 h-4" />
-                  <span>info@formulabigu.com</span>
-                </div> */}
               </div>
-              {/* <button
-                onClick={() => scrollToSection("pricing")}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
-              >
-                Почати зараз
-              </button> */}
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100 transition-colors"
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -90,7 +79,7 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="block text-gray-700 hover:text-red-600 font-medium transition-colors"
                 >
                   {item.label}
                 </button>
@@ -102,14 +91,7 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                     <Phone className="w-4 h-4" />
                     <span>+380 (67) 123-45-67</span>
                   </div>
-                  {/* <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    <span>info@formulabigu.com</span>
-                  </div> */}
                 </div>
-                {/* <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-full font-semibold">
-                  Почати зараз
-                </button> */}
               </div>
             </div>
           </div>

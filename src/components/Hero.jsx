@@ -21,7 +21,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                Твій біг.Твій ритм.Твій результат.
+                Твій біг. Твій ритм. Твій результат.
                 <br />
                 <span className="text-gray-800 text-3xl sm:text-4xl lg:text-5xl mt-4 block">
                   Приєднуйся до{" "}
@@ -32,7 +32,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-white leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl  leading-relaxed max-w-2xl">
                 Онлайн-тренування з голосовим супроводом, технікою, мотивацією
                 та планом, який доводить до результату з будь-якої точки світу.
               </p>
@@ -49,7 +49,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
 
                 <button
                   onClick={() => setIsVideoModalOpen(true)}
-                  className="group border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group border-2 border-gray-300 hover:border-red-600 text-gray-700 hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play className="w-5 h-5" />
                   Дивитися відео
@@ -59,9 +59,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
 
             {/* Right Column - Visual Elements */}
             <div className="relative lg:ml-auto">
-              {/* <div className="space-y-4"> */}
               <CountdownTimer />
-              {/* </div> */}
             </div>
           </div>
         </div>

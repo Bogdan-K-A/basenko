@@ -8,8 +8,12 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="bg-gradient-to-br from-orange-400 to-red-400 w-80 h-80 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl">
-                  СБ
+                <div className="bg-gradient-to-br from-orange-400 to-red-400 w-100 h-100 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl overflow-hidden">
+                  <img
+                    src="/images/DSC02270Sergey_run_ph.JPG"
+                    alt="logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -25,7 +29,7 @@ const About = () => {
                   Сергій Басенко
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Професійний тренер з бігу з 15-річним досвідом. Підготував 12
+                  Професійний тренер з бігу з 10-річним досвідом. Підготував 12
                   олімпійців, понад 50 майстрів спорту та допоміг більше ніж
                   2000 людей досягти своїх цілей у бігу.
                 </p>

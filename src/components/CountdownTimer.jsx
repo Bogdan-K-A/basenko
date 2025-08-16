@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 
 const CountdownTimer = () => {
-  // Целевая дата: через 16 дней, 6 часов, 12 минут, 5 секунд от текущего времени
-  const getTargetDate = () => {
-    const now = new Date();
-    now.setSeconds(now.getSeconds() + 5);
-    now.setMinutes(now.getMinutes() + 12);
-    now.setHours(now.getHours() + 6);
-    now.setDate(now.getDate() + 16);
-    return now;
-  };
+  const targetDate = new Date("2025-08-25T00:00:00"); //конечная точка отсчета
 
-  const targetDate = getTargetDate();
+  // Целевая дата: через 16 дней, 6 часов, 12 минут, 5 секунд от текущего времени
+  // const getTargetDate = () => {
+  //   const now = new Date();
+  //   now.setSeconds(now.getSeconds() + 5);
+  //   now.setMinutes(now.getMinutes() + 12);
+  //   now.setHours(now.getHours() + 6);
+  //   now.setDate(now.getDate() + 16);
+
+  //   return now;
+  // };
+
+  // const targetDate = getTargetDate();
 
   const calculateTimeLeft = () => {
     const now = new Date();

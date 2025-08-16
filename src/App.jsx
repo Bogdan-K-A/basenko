@@ -119,7 +119,7 @@ function App() {
         setIsVideoModalOpen={setIsVideoModalOpen}
       />
       {/* Problem Section */}
-      <Problem />
+      <Problem scrollToSection={scrollToSection} />
       {/* Solution Section */}
       <Solution />
       {/* About Trainer */}
