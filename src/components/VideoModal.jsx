@@ -19,13 +19,13 @@ const VideoModal = ({ setIsVideoModalOpen }) => {
 
           <div className="p-6">
             <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <PlayCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600">
-                  Тут буде ваше промо-відео курсу
-                  <br />
-                  (30-45 секунд знайомства з "Формулою Бігу")
-                </p>
+              <div className="text-center ">
+                <video
+                  src="./video/2.mp4"
+                  controls
+                  autoPlay
+                  className="h-full w-full rounded-xl"
+                />
               </div>
             </div>
           </div>

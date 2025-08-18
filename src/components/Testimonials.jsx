@@ -4,7 +4,7 @@ const Testimonials = () => {
   return (
     <>
       <section id="testimonials" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Історії успіху наших учасників
@@ -64,6 +64,16 @@ const Testimonials = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center">
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mx-auto mt-10  border-2 border-red-600 hover:border-red-600   hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+            >
+              Більше відгуків
+            </a>
           </div>
         </div>
       </section>

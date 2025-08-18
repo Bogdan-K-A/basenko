@@ -1,10 +1,32 @@
 import { Target, Heart, Phone, CheckCircle } from "lucide-react";
 
 const solution = [
-  "<b>8 онлайн-тренувань наживо</b> з голосовим супроводом і корекцією техніки.",
-  "Персональний план харчування",
-  "Доступ до закритої спільноти",
-  "Сертифікат після завершення",
+  <>
+    <b>8 онлайн-тренувань наживо</b> з голосовим супроводом і корекцією техніки.
+  </>,
+  <>
+    <b>2 тренування мобіліті</b> для гнучкості та розблокування тіла.
+  </>,
+  <>
+    <b>2 інтенсивні табата-сесії</b> для розвитку витривалості та спалювання
+    жиру.
+  </>,
+  <>
+    <b>3 короткі тренування</b> для днів із мінімумом часу.
+  </>,
+  <>
+    <b>2 комплекси спеціально-бігових вправ</b> для легкої та безпечної техніки.
+  </>,
+  <>
+    <b>2 силові комплекси</b> для зміцнення м’язів і профілактики травм.
+  </>,
+  <>
+    <b>Збалансоване меню для всієї родини</b>, яке поєднує користь і смак.
+  </>,
+  <>
+    <b>Доступ до всіх тренувань</b> протягом 14 днів, щоб переглядати у зручний
+    час.
+  </>,
 ];
 
 const Solution = () => {
@@ -80,16 +102,19 @@ const Solution = () => {
 
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold mb-6 text-white text-center">
-                  Що ти отримуєш у «Формулі Бігу»:
+                  Що ти отримуєш у «Формулі Бігу»
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-6">
                   {solution.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="w-6 h-6 text-green-300" />
-                      <span className="text-white font-medium">{item}</span>
+                      <span className="text-white">{item}</span>
                     </div>
                   ))}
                 </div>
+                <p className="text-blue-50 text-2xl font-medium text-white text-center">
+                  Доступ до чату підтримки на завжди
+                </p>
               </div>
             </div>
           </div>

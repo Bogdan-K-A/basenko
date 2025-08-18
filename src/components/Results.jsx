@@ -42,7 +42,7 @@ const Results = () => {
                   <Heart className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                  Покращиш здоров'я
+                  Покращиш показники пульсу
                 </h3>
                 <p className="text-gray-600">
                   Нормалізується тиск, покращиться робота серця, зміцниться
@@ -58,7 +58,8 @@ const Results = () => {
                   Отримаєш енергію
                 </h3>
                 <p className="text-gray-600">
-                  Підвищиться працездатність, покращиться настрій і якість сну
+                  Твоє життя систематизуеться, підвищиться працездатність,
+                  покращиться настрій і якість сну
                 </p>
               </div>
 
@@ -67,7 +68,7 @@ const Results = () => {
                   <Target className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                  Схуднеш на 5-12 кг
+                  Гарантовано Схуднеш від 3-5 кг
                 </h3>
                 <p className="text-gray-600">
                   Природне спалювання жиру та формування красивого рельєфу тіла

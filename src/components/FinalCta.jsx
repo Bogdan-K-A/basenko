@@ -4,8 +4,20 @@ const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
   return (
     <>
       {" "}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url("./images/final-cta.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Прозрачный синий фон поверх изображения */}
+        <div className="absolute inset-0 bg-blue-600/80"></div>
+
+        {/* Контент поверх фона */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Готовий змінити своє життя?
           </h2>
@@ -34,9 +46,7 @@ const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div>
               <Calendar className="w-8 h-8 text-blue-200 mx-auto mb-2" />
-              <p className="text-blue-100">
-                Гарантія повернення коштів 30 днів
-              </p>
+              <p className="text-blue-100">Гарантія повернення коштів 5 днів</p>
             </div>
             <div>
               <Shield className="w-8 h-8 text-blue-200 mx-auto mb-2" />

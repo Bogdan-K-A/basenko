@@ -20,7 +20,7 @@ const FormModal = ({
           className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-300"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-between items-center p-6 border-b">
+          <div className="flex justify-between items-center p-3 border-b">
             <h3 className="text-xl font-bold text-gray-900">
               Форма зворотного зв'язку
             </h3>
@@ -190,16 +190,6 @@ const FormModal = ({
                         <>Надіслати повідомлення</>
                       )}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        resetForm();
-                        setIsContactFormOpen(false);
-                      }}
-                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
-                    >
-                      Скасувати
-                    </button>
                   </div>
                 </form>
               </>
@@ -214,12 +204,22 @@ const FormModal = ({
             <div className="space-y-2 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+380 (67) 123-45-67</span>
+                <a
+                  href="tel:+380632602691"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +380 (63) 260 26 91
+                </a>
               </div>
-              {/* <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>info@formulabigu.com</span>
-              </div> */}
+
+              <a
+                href="https://t.me/baskarabas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Telegram: @baskarabas
+              </a>
             </div>
           </div>
         </div>

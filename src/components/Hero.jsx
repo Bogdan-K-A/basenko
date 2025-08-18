@@ -48,13 +48,13 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
-                {/* <button
+                <button
                   onClick={() => setIsVideoModalOpen(true)}
-                  className="group border-2 border-gray-300 hover:border-red-600 text-gray-700 hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group border-2 border-white hover:border-red-600 text-white hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play className="w-5 h-5" />
                   Дивитися відео
-                </button> */}
+                </button>
               </div>
             </div>
 

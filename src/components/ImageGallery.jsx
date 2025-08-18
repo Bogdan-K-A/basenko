@@ -1,34 +1,34 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const galleryImages = [
   {
-    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/1.jpg",
     alt: "Тренування на стадіоні",
     caption: "Групові тренування на свіжому повітрі",
   },
   {
-    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/2.jpg",
     alt: "Біг у парку",
     caption: "Індивідуальні тренування в парку",
   },
   {
-    src: "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/3.jpg",
     alt: "Розминка перед бігом",
     caption: "Правильна розминка - основа безпечного бігу",
   },
   {
-    src: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/4.jpg",
     alt: "Фініш забігу",
     caption: "Досягнення цілей разом з командою",
   },
   {
-    src: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/5.jpg",
     alt: "Тренування взимку",
     caption: "Тренуємося цілий рік незалежно від погоди",
   },
   {
-    src: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
+    src: "./images/gallery/6.jpg",
     alt: "Медитація після бігу",
     caption: "Відновлення та релаксація після тренування",
   },
@@ -37,6 +37,12 @@ const galleryImages = [
 const ImageGallery = ({ title }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const lightboxRef = useRef(null);
+
+  // Минимальное расстояние для свайпа
+  const minSwipeDistance = 50;
 
   const openLightbox = (index) => {
     setSelectedImage(index);
@@ -57,8 +63,50 @@ const ImageGallery = ({ title }) => {
     );
   };
 
+  // Обработчики touch событий
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
+    }
+  };
+
+  // Обработчик клавиши Escape
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    if (selectedImage !== null) {
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedImage]);
+
   return (
-    <div className="py-20 bg-white">
+    <section id="gallery" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -104,16 +152,26 @@ const ImageGallery = ({ title }) => {
 
           {/* Lightbox */}
           {selectedImage !== null && (
-            <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-              <div className="relative max-w-4xl max-h-full">
-                {/* Close Button */}
-                <button
-                  onClick={closeLightbox}
-                  className="absolute -top-12 right-0 text-white hover:text-orange-400 transition-colors"
-                >
-                  <X className="w-8 h-8" />
-                </button>
+            <div
+              ref={lightboxRef}
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              onClick={closeLightbox} // Закрытие при клике на фон
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
+              {/* Close Button - вынесен за пределы контейнера изображения */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 text-white hover:text-orange-400 transition-colors z-[9999]"
+              >
+                <X className="w-8 h-8" />
+              </button>
 
+              <div
+                className="relative max-w-4xl max-h-full"
+                onClick={(e) => e.stopPropagation()} // Предотвращаем закрытие при клике на контент
+              >
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevImage}
@@ -156,7 +214,7 @@ const ImageGallery = ({ title }) => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

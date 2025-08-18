@@ -35,7 +35,6 @@ const Pricing = () => {
                   "12-тижневий план тренувань",
                   "Голосовий супровід",
                   "Доступ до спільноти",
-                  // "Мобільний додаток",
                   "Базова підтримка",
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
@@ -45,9 +44,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300">
+              <a
+                href="https://secure.wayforpay.com/button/b90a054f1359d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300 inline-block text-center"
+              >
                 Обрати базовий
-              </button>
+              </a>
             </div>
 
             {/* Premium Plan */}
@@ -61,7 +65,7 @@ const Pricing = () => {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black mb-2">Преміум</h3>
                 <div className="text-4xl font-bold text-blue-600 mb-2">
-                  ₴4,999
+                  ₴850
                 </div>
                 <p className="text-gray-100">одноразовий платіж</p>
               </div>
@@ -82,9 +86,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300">
+              <a
+                href="https://secure.wayforpay.com/button/b90a054f1359d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300 inline-block text-center"
+              >
                 Обрати преміум
-              </button>
+              </a>
             </div>
           </div>
         </div>

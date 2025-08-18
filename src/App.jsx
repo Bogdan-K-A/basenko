@@ -164,7 +164,10 @@ function App() {
       {/* Key Benefits Section */}
       {/* <Benefits /> */}
       {/* Course Features Section */}
-      <Course setIsVideoModalOpen={setIsVideoModalOpen} />
+      <Course
+        setIsVideoModalOpen={setIsVideoModalOpen}
+        scrollToSection={scrollToSection}
+      />
       {/* Testimonials Section */}
       <Testimonials />
       {/* Pricing Section */}
@@ -179,9 +182,9 @@ function App() {
       {/* Footer */}
       <Footer />
       {/* Video Modal */}
-      {/* {isVideoModalOpen && (
+      {isVideoModalOpen && (
         <VideoModal setIsVideoModalOpen={setIsVideoModalOpen} />
-      )} */}
+      )}
       {/* Contact Form Modal */}
       {isContactFormOpen && (
         <FormModal

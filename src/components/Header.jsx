@@ -1,8 +1,9 @@
 import { Menu, Phone } from "lucide-react";
 const navBar = [
-  { label: "Про курс", id: "about" },
+  { label: "Про курс", id: "solution" },
+  { label: "Тренер", id: "about" },
   { label: "Програма", id: "program" },
-  { label: "Переваги", id: "benefits" },
+  { label: "Галерея", id: "gallery" },
   { label: "Відгуки", id: "testimonials" },
   { label: "Тарифи", id: "pricing" },
   { label: "FAQ", id: "faq" },
@@ -50,9 +51,25 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
             {/* Contact Info & CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <div className="flex items-center gap-4 text-sm text-white">
-                <div className="flex items-center gap-1">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+380671234567">+380 (67) 123-45-67</a>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    <a
+                      href="tel:+380632602691"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      +380 (63) 260 26 91
+                    </a>
+                  </div>
+
+                  <a
+                    href="https://t.me/baskarabas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Telegram: @baskarabas
+                  </a>
                 </div>
               </div>
             </div>
@@ -87,8 +104,21 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                 <div className="space-y-2 text-sm text-gray-600 mb-4">
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4" />
-                    <span>+380 (67) 123-45-67</span>
+                    <a
+                      href="tel:+380632602691"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      +380 (63) 260 26 91
+                    </a>
                   </div>
+                  <a
+                    href="https://t.me/baskarabas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Telegram: @baskarabas
+                  </a>
                 </div>
               </div>
             </div>
