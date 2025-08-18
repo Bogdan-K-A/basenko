@@ -1,4 +1,4 @@
-import { CheckCircle, MessageCircle, Phone, Mail, X } from "lucide-react";
+import { CheckCircle, Phone, X } from "lucide-react";
 
 const FormModal = ({
   setIsContactFormOpen,
@@ -46,7 +46,6 @@ const FormModal = ({
             ) : (
               <>
                 <div className="text-center mb-6">
-                  <MessageCircle className="w-12 h-12 text-blue-600 mx-auto mb-3" />
                   <p className="text-gray-600">
                     Маєте питання? Заповніть форму і ми зв'яжемося з вами
                     найближчим часом!
@@ -188,10 +187,7 @@ const FormModal = ({
                           Надсилання...
                         </>
                       ) : (
-                        <>
-                          Надіслати повідомлення
-                          <MessageCircle className="w-5 h-5" />
-                        </>
+                        <>Надіслати повідомлення</>
                       )}
                     </button>
                     <button

@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  Calendar,
-  MessageCircle,
-  Shield,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Calendar, Shield, Users } from "lucide-react";
 
 const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
   return (
@@ -33,7 +27,6 @@ const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
               onClick={() => setIsContactFormOpen(true)}
               className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-5 h-5" />
               Задати питання
             </button>
           </div>

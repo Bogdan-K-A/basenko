@@ -107,37 +107,6 @@ const Program = () => {
               );
             })}
           </div>
-
-          {/* Additional Info */}
-          {/* <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6">
-              <Calendar className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-              <h4 className="font-bold text-gray-900 mb-2">Гнучкий графік</h4>
-              <p className="text-gray-600 text-sm">
-                Адаптуйте тренування під свій розклад
-              </p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6">
-              <Trophy className="w-8 h-8 text-orange-500 mx-auto mb-4" />
-              <h4 className="font-bold text-gray-900 mb-2">
-                Прогресивне навантаження
-              </h4>
-              <p className="text-gray-600 text-sm">
-                Поступове збільшення інтенсивності
-              </p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6">
-              <Users className="w-8 h-8 text-green-500 mx-auto mb-4" />
-              <h4 className="font-bold text-gray-900 mb-2">
-                Групова підтримка
-              </h4>
-              <p className="text-gray-600 text-sm">
-                Мотивація від спільноти бігунів
-              </p>
-            </div>
-          </div> */}
         </div>
       </section>
     </>

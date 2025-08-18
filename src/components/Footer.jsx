@@ -57,7 +57,7 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4">Контакти</h4>
               <div className="space-y-2 text-gray-400">
-                <p>Email: info@formulabigu.com</p>
+                {/* <p>Email: info@formulabigu.com</p> */}
                 <p>Телефон: +380 (67) 123-45-67</p>
                 <p>Telegram: @formulabigu</p>
               </div>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Формула Бігу. Всі права захищені.</p>
+            <p>&copy; 2025 Формула Бігу. Всі права захищені.</p>
           </div>
         </div>
       </footer>

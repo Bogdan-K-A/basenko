@@ -179,9 +179,9 @@ function App() {
       {/* Footer */}
       <Footer />
       {/* Video Modal */}
-      {isVideoModalOpen && (
+      {/* {isVideoModalOpen && (
         <VideoModal setIsVideoModalOpen={setIsVideoModalOpen} />
-      )}
+      )} */}
       {/* Contact Form Modal */}
       {isContactFormOpen && (
         <FormModal

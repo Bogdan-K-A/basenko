@@ -1,7 +1,7 @@
 import { Target, Heart, Phone, CheckCircle } from "lucide-react";
 
 const solution = [
-  "24 живі онлайн тренування",
+  "<b>8 онлайн-тренувань наживо</b> з голосовим супроводом і корекцією техніки.",
   "Персональний план харчування",
   "Доступ до закритої спільноти",
   "Сертифікат після завершення",
@@ -44,11 +44,10 @@ const Solution = () => {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-white">
-                      Персональний підхід
+                      Універсальний підхід
                     </h3>
                     <p className="text-blue-50">
-                      Індивідуальний план тренувань під твій рівень підготовки
-                      та цілі
+                      План тринувань побудований для всіх рівнів підготовки
                     </p>
                   </div>
                 </div>
@@ -81,7 +80,7 @@ const Solution = () => {
 
               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold mb-6 text-white text-center">
-                  Що ти отримуєш:
+                  Що ти отримуєш у «Формулі Бігу»:
                 </h3>
                 <div className="space-y-4">
                   {solution.map((item, index) => (
