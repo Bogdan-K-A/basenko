@@ -17,6 +17,7 @@ import FinalCta from "./components/FinalCta.jsx";
 import Footer from "./components/Footer.jsx";
 import VideoModal from "./components/VideoModal.jsx";
 import FormModal from "./components/FormModal.jsx";
+import { sendMessage } from "./api/telegramBot.js";
 
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -26,15 +27,14 @@ function App() {
   // Form state
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
     email: "",
     phone: "",
     subject: "",
-    message: "",
-    agreement: false,
+    comments: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -64,20 +64,46 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(""); // Сбрасываем ошибку
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      let subject = "";
+      switch (formData.subject) {
+        case "course":
+          subject = "Питання про курс";
+          break;
+        case "partnership":
+          subject = "Співпраця";
+          break;
+        case "other":
+          subject = "Інше";
+          break;
+        default:
+          subject = "Загальне питання";
+      }
+      // Формируем сообщение для Telegram
+      const message = [
+        "НОВЕ ПИТАННЯ З САЙТУ ФОРМУЛА БІГУ:",
+        `Ім’я: ${formData.firstName}`,
+        `Телефон: ${formData.phone}`,
+        `Тема: ${subject}`,
+        `Email: ${formData.email}`,
+        `Повідомлення: ${formData.comments || "-"}`,
+      ].join("\n");
+
+      // Отправляем сообщение в Telegram
+      await sendMessage(message);
+
+      // Показываем успех
+      // alert("Дякуємо! Ми зв'яжемося з вами найближчим часом.");
 
       // Reset form and show success
       setFormData({
         firstName: "",
-        lastName: "",
-        email: "",
         phone: "",
+        email: "",
         subject: "",
-        message: "",
-        agreement: false,
+        comments: "",
       });
       setSubmitSuccess(true);
 
@@ -85,9 +111,13 @@ function App() {
       setTimeout(() => {
         setIsContactFormOpen(false);
         setSubmitSuccess(false);
-      }, 2000);
+      }, 3000);
     } catch (error) {
       console.error("Error submitting form:", error);
+      setSubmitError(
+        error.message ||
+          "Помилка при відправці. Спробуйте ще раз або зв'яжіться з нами по телефону."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -100,11 +130,12 @@ function App() {
       email: "",
       phone: "",
       subject: "",
-      message: "",
-      agreement: false,
+      comments: "",
     });
     setSubmitSuccess(false);
+    setSubmitError(""); // Сбрасываем ошибку
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Header */}
@@ -157,6 +188,7 @@ function App() {
           setIsContactFormOpen={setIsContactFormOpen}
           submitSuccess={submitSuccess}
           isSubmitting={isSubmitting}
+          submitError={submitError}
           formData={formData}
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}

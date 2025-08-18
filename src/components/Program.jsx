@@ -108,62 +108,8 @@ const Program = () => {
             })}
           </div>
 
-          {/* Progress Indicator */}
-          {/* <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Твій прогрес по тижнях
-              </h3>
-              <p className="text-gray-600">
-                Поступове збільшення навантаження та складності
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { week: "Тиждень 1", focus: "Адаптація", progress: 25 },
-                { week: "Тиждень 2", focus: "Техніка", progress: 50 },
-                { week: "Тиждень 3", focus: "Витривалість", progress: 75 },
-                { week: "Тиждень 4", focus: "Результат", progress: 100 },
-              ].map((week, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative w-20 h-20 mx-auto mb-4">
-                    <svg
-                      className="w-20 h-20 transform -rotate-90"
-                      viewBox="0 0 36 36"
-                    >
-                      <path
-                        className="text-gray-200"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        fill="none"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                      <path
-                        className="text-blue-600"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeDasharray={`${week.progress}, 100`}
-                        strokeLinecap="round"
-                        fill="none"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm font-bold text-gray-900">
-                        {week.progress}%
-                      </span>
-                    </div>
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-1">{week.week}</h4>
-                  <p className="text-sm text-gray-600">{week.focus}</p>
-                </div>
-              ))}
-            </div>
-          </div> */}
-
           {/* Additional Info */}
-          <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
+          {/* <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6">
               <Calendar className="w-8 h-8 text-blue-600 mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Гнучкий графік</h4>
@@ -191,7 +137,7 @@ const Program = () => {
                 Мотивація від спільноти бігунів
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

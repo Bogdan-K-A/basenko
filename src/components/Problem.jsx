@@ -65,7 +65,7 @@ const Problem = ({ scrollToSection }) => {
             <div className="flex  justify-center ">
               <button
                 onClick={() => scrollToSection("pricing")}
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                className="group bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 Приєднатися зараз
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -12,6 +12,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             alt="Running training background"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
         {/* Content Container */}
@@ -23,7 +24,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               <h1 className="text-3xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
                 Твій біг. Твій ритм. Твій результат.
                 <br />
-                <span className="text-gray-800 text-3xl sm:text-4xl lg:text-5xl mt-4 block">
+                <span className="text-white text-4xl sm:text-4xl lg:text-5xl mt-4 block">
                   Приєднуйся до{" "}
                   <span className="text-red-600 font-extrabold">
                     Формули Бігу!
@@ -47,13 +48,13 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
-                <button
+                {/* <button
                   onClick={() => setIsVideoModalOpen(true)}
                   className="group border-2 border-gray-300 hover:border-red-600 text-gray-700 hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play className="w-5 h-5" />
                   Дивитися відео
-                </button>
+                </button> */}
               </div>
             </div>
 

@@ -1,5 +1,38 @@
 import { Target, Heart, Zap, Shield, Trophy } from "lucide-react";
 
+const benefits = [
+  {
+    icon: Target,
+    title: "Техніка",
+    description: "Правильна постановка стопи та біомеханіка руху",
+    color: "blue",
+  },
+  {
+    icon: Heart,
+    title: "Витривалість",
+    description: "Розвиток серцево-судинної системи",
+    color: "red",
+  },
+  {
+    icon: Zap,
+    title: "Сила",
+    description: "Функціональна підготовка м'язів",
+    color: "yellow",
+  },
+  {
+    icon: Shield,
+    title: "Гнучкість",
+    description: "Мобільність суглобів та профілактика травм",
+    color: "green",
+  },
+  {
+    icon: Trophy,
+    title: "Мотивація",
+    description: "Психологічна підготовка та досягнення цілей",
+    color: "purple",
+  },
+];
+
 const Benefits = () => {
   return (
     <>
@@ -16,38 +49,7 @@ const Benefits = () => {
           </div>
 
           <div className="grid md:grid-cols-5 gap-8">
-            {[
-              {
-                icon: Target,
-                title: "Техніка",
-                description: "Правильна постановка стопи та біомеханіка руху",
-                color: "blue",
-              },
-              {
-                icon: Heart,
-                title: "Витривалість",
-                description: "Розвиток серцево-судинної системи",
-                color: "red",
-              },
-              {
-                icon: Zap,
-                title: "Сила",
-                description: "Функціональна підготовка м'язів",
-                color: "yellow",
-              },
-              {
-                icon: Shield,
-                title: "Гнучкість",
-                description: "Мобільність суглобів та профілактика травм",
-                color: "green",
-              },
-              {
-                icon: Trophy,
-                title: "Мотивація",
-                description: "Психологічна підготовка та досягнення цілей",
-                color: "purple",
-              },
-            ].map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <div key={index} className="text-center group">
                 <div
                   className={`w-20 h-20 mx-auto mb-6 rounded-full bg-${benefit.color}-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}

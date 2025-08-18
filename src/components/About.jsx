@@ -7,14 +7,12 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="bg-gradient-to-br from-orange-400 to-red-400 w-100 h-100 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl overflow-hidden">
-                  <img
-                    src="/images/DSC02270Sergey_run_ph.JPG"
-                    alt="logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="bg-gradient-to-br from-orange-400 to-red-400 w-100 h-100 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl overflow-hidden">
+                <img
+                  src="./images/trener.jpg"
+                  alt="Тренер"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <div>
@@ -29,15 +27,15 @@ const About = () => {
                   Сергій Басенко
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Професійний тренер з бігу з 10-річним досвідом. Підготував 12
-                  олімпійців, понад 50 майстрів спорту та допоміг більше ніж
-                  2000 людей досягти своїх цілей у бігу.
+                  Провідний спеціаліст у світі олімпійської легкої атлетики з
+                  понад двадцятирічним досвідом. Мої учні являються призерами
+                  Олімпійських ігор, Чемпіонатів Світу та Чемпіонатів Европи.
                 </p>
 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-500">
-                      10+
+                      20+
                     </div>
                     <div className="text-gray-600">років досвіду</div>
                   </div>

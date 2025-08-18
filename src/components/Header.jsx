@@ -26,10 +26,8 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                   />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">
-                    Формула Бігу
-                  </h1>
-                  <p className="text-xs text-gray-600 hidden sm:block">
+                  <h1 className="text-xl font-bold text-white">Формула Бігу</h1>
+                  <p className="text-xs text-white hidden sm:block">
                     Онлайн тренування
                   </p>
                 </div>

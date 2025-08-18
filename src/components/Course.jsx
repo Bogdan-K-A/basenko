@@ -20,7 +20,7 @@ const Course = ({ setIsVideoModalOpen }) => {
                   "Голосовий супровід кожного тренування",
                   "Відеоуроки з техніки бігу та розминки",
                   "Доступ до закритої спільноти бігунів",
-                  "Щотижневі прямі ефіри з тренером",              
+                  "Щотижневі прямі ефіри з тренером",
                   "Індивідуальні консультації (2 рази на місяць)",
                   "Сертифікат після завершення курсу",
                 ].map((feature, index) => (
@@ -39,21 +39,28 @@ const Course = ({ setIsVideoModalOpen }) => {
             </div>
 
             <div className="relative">
-              <img
+              {/* <img
                 src="https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Running training session"
                 className="rounded-2xl shadow-2xl"
-              />
+              /> */}
 
               {/* Video Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-orange-400 to-red-400 w-100 h-100 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl overflow-hidden">
+                <img
+                  src="./images/trener.jpg"
+                  alt="Тренер"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <button
                   onClick={() => setIsVideoModalOpen(true)}
                   className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
                 >
                   <PlayCircle className="w-12 h-12 text-blue-600" />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
