@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 import ImageGallery from "./components/ImageGallery.jsx";
 import Hero from "./components/Hero.jsx";
@@ -36,7 +36,8 @@ function App() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
-  const scrollToSection = (sectionId) => {
+  // Мемоизированные обработчики
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const headerHeight = 64; // Height of fixed header
@@ -48,10 +49,24 @@ function App() {
       });
     }
     setIsMobileMenuOpen(false); // Close mobile menu after clicking
-  };
+  }, []);
+
+  const handleVideoModalOpen = useCallback(() => setIsVideoModalOpen(true), []);
+  const handleVideoModalClose = useCallback(
+    () => setIsVideoModalOpen(false),
+    []
+  );
+  const handleContactFormOpen = useCallback(
+    () => setIsContactFormOpen(true),
+    []
+  );
+  const handleContactFormClose = useCallback(
+    () => setIsContactFormOpen(false),
+    []
+  );
 
   // Form handlers
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     const { name, value, type } = e.target;
     if (type === "checkbox") {
       const checked = e.target.checked;
@@ -59,73 +74,73 @@ function App() {
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-  };
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(""); // Сбрасываем ошибку
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setSubmitError(""); // Сбрасываем ошибку
 
-    try {
-      let subject = "";
-      switch (formData.subject) {
-        case "course":
-          subject = "Питання про курс";
-          break;
-        case "partnership":
-          subject = "Співпраця";
-          break;
-        case "other":
-          subject = "Інше";
-          break;
-        default:
-          subject = "Загальне питання";
+      try {
+        let subject = "";
+        switch (formData.subject) {
+          case "course":
+            subject = "Питання про курс";
+            break;
+          case "partnership":
+            subject = "Співпраця";
+            break;
+          case "other":
+            subject = "Інше";
+            break;
+          default:
+            subject = "Загальне питання";
+        }
+        // Формируем сообщение для Telegram
+        const message = [
+          "НОВЕ ПИТАННЯ З САЙТУ ФОРМУЛА БІГУ:",
+          `Ім'я: ${formData.firstName}`,
+          `Телефон: ${formData.phone}`,
+          `Тема: ${subject}`,
+          `Email: ${formData.email}`,
+          `Повідомлення: ${formData.comments || "-"}`,
+        ].join("\n");
+
+        // Отправляем сообщение в Telegram
+        await sendMessage(message);
+
+        // Reset form and show success
+        setFormData({
+          firstName: "",
+          phone: "",
+          email: "",
+          subject: "",
+          comments: "",
+        });
+        setSubmitSuccess(true);
+
+        // Close modal after 3 seconds
+        setTimeout(() => {
+          setIsContactFormOpen(false);
+          setSubmitSuccess(false);
+        }, 3000);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setSubmitError(
+          error.message ||
+            "Помилка при відправці. Спробуйте ще раз або зв'яжіться з нами по телефону."
+        );
+      } finally {
+        setIsSubmitting(false);
       }
-      // Формируем сообщение для Telegram
-      const message = [
-        "НОВЕ ПИТАННЯ З САЙТУ ФОРМУЛА БІГУ:",
-        `Ім’я: ${formData.firstName}`,
-        `Телефон: ${formData.phone}`,
-        `Тема: ${subject}`,
-        `Email: ${formData.email}`,
-        `Повідомлення: ${formData.comments || "-"}`,
-      ].join("\n");
+    },
+    [formData]
+  );
 
-      // Отправляем сообщение в Telegram
-      await sendMessage(message);
-
-      // Показываем успех
-
-      // Reset form and show success
-      setFormData({
-        firstName: "",
-        phone: "",
-        email: "",
-        subject: "",
-        comments: "",
-      });
-      setSubmitSuccess(true);
-
-      // Close modal after 2 seconds
-      setTimeout(() => {
-        setIsContactFormOpen(false);
-        setSubmitSuccess(false);
-      }, 3000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitError(
-        error.message ||
-          "Помилка при відправці. Спробуйте ще раз або зв'яжіться з нами по телефону."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const resetForm = () => {
+  const resetForm = useCallback(() => {
     setFormData({
       firstName: "",
-      lastName: "",
       email: "",
       phone: "",
       subject: "",
@@ -133,7 +148,47 @@ function App() {
     });
     setSubmitSuccess(false);
     setSubmitError(""); // Сбрасываем ошибку
-  };
+  }, []);
+
+  // Мемоизированные пропсы для компонентов
+  const heroProps = useMemo(
+    () => ({
+      scrollToSection,
+      setIsVideoModalOpen: handleVideoModalOpen,
+    }),
+    [scrollToSection, handleVideoModalOpen]
+  );
+
+  const finalCtaProps = useMemo(
+    () => ({
+      setIsContactFormOpen: handleContactFormOpen,
+      scrollToSection,
+    }),
+    [handleContactFormOpen, scrollToSection]
+  );
+
+  const formModalProps = useMemo(
+    () => ({
+      setIsContactFormOpen: handleContactFormClose,
+      submitSuccess,
+      isSubmitting,
+      submitError,
+      formData,
+      handleInputChange,
+      handleSubmit,
+      resetForm,
+    }),
+    [
+      handleContactFormClose,
+      submitSuccess,
+      isSubmitting,
+      submitError,
+      formData,
+      handleInputChange,
+      handleSubmit,
+      resetForm,
+    ]
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
@@ -144,10 +199,7 @@ function App() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
       {/* Hero Section */}
-      <Hero
-        scrollToSection={scrollToSection}
-        setIsVideoModalOpen={setIsVideoModalOpen}
-      />
+      <Hero {...heroProps} />
       {/* Problem Section */}
       <Problem scrollToSection={scrollToSection} />
       {/* Solution Section */}
@@ -164,7 +216,7 @@ function App() {
       {/* <Benefits /> */}
       {/* Course Features Section */}
       <Course
-        setIsVideoModalOpen={setIsVideoModalOpen}
+        setIsVideoModalOpen={handleVideoModalOpen}
         scrollToSection={scrollToSection}
       />
       {/* Testimonials Section */}
@@ -174,29 +226,15 @@ function App() {
       {/* FAQ Section */}
       <Faq />
       {/* Final CTA Section */}
-      <FinalCta
-        setIsContactFormOpen={setIsContactFormOpen}
-        scrollToSection={scrollToSection}
-      />
+      <FinalCta {...finalCtaProps} />
       {/* Footer */}
       <Footer />
       {/* Video Modal */}
       {isVideoModalOpen && (
-        <VideoModal setIsVideoModalOpen={setIsVideoModalOpen} />
+        <VideoModal setIsVideoModalOpen={handleVideoModalClose} />
       )}
       {/* Contact Form Modal */}
-      {isContactFormOpen && (
-        <FormModal
-          setIsContactFormOpen={setIsContactFormOpen}
-          submitSuccess={submitSuccess}
-          isSubmitting={isSubmitting}
-          submitError={submitError}
-          formData={formData}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-          resetForm={resetForm}
-        />
-      )}
+      {isContactFormOpen && <FormModal {...formModalProps} />}
     </div>
   );
 }

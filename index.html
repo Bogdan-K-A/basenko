@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/webp" href="/images/logo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Формула Бігу - Онлайн тренування з бігу</title>
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Формула Бігу - Онлайн тренування з бігу | Професійна підготовка
+    </title>
+    <meta
+      name="description"
+      content="Онлайн-тренування з бігу з голосовим супроводом, технікою та планом. Приєднуйся до Формули Бігу та досягни своїх цілей!"
+    />
+    <meta
+      name="keywords"
+      content="біг, тренування, онлайн, марафон, півмарафон, техніка бігу, планування тренувань"
+    />
+    <meta name="author" content="Формула Бігу" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://formula-bigu.com/" />
+    <meta
+      property="og:title"
+      content="Формула Бігу - Онлайн тренування з бігу"
+    />
+    <meta
+      property="og:description"
+      content="Професійні онлайн-тренування з бігу з голосовим супроводом та планом"
+    />
+    <meta property="og:image" content="/images/5.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://formula-bigu.com/" />
+    <meta
+      property="twitter:title"
+      content="Формула Бігу - Онлайн тренування з бігу"
+    />
+    <meta
+      property="twitter:description"
+      content="Професійні онлайн-тренування з бігу з голосовим супроводом та планом"
+    />
+    <meta property="twitter:image" content="/images/5.webp" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/images/5.webp" as="image" type="image/webp" />
+    <link rel="preload" href="/images/logo.webp" as="image" type="image/webp" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://api.telegram.org" />
+
+    <!-- Performance optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#dc2626" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//api.telegram.org" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Performance monitoring -->
+    <script>
+      // Core Web Vitals monitoring
+      if ("PerformanceObserver" in window) {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (entry.entryType === "largest-contentful-paint") {
+              // console.log("LCP:", entry.startTime);
+            }
+          }
+        });
+        observer.observe({ entryTypes: ["largest-contentful-paint"] });
+      }
+    </script>
   </body>
 </html>

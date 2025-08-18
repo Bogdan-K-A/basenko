@@ -21,10 +21,10 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
-              <h1 className="text-3xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+              <h1 className="text-1xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
                 Біжи легко. Розвивайся без травм. Досягай свого результату
                 <br />
-                <span className="text-white text-4xl sm:text-4xl lg:text-5xl mt-4 block">
+                <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block">
                   Приєднуйся до{" "}
                   <span className="text-red-600 font-extrabold">
                     Формули Бігу!
@@ -33,7 +33,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl  leading-relaxed max-w-2xl text-white">
+              <p className="text-sm sm:text-xl  leading-relaxed max-w-2xl text-white">
                 Онлайн-тренування з голосовим супроводом, технікою, мотивацією
                 та планом, який доводить до результату з будь-якої точки світу.
               </p>
