@@ -45,13 +45,13 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-full font-semibold transition-colors duration-300">
+              <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300">
                 Обрати базовий
               </button>
             </div>
 
             {/* Premium Plan */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 shadow-xl border-2 border-blue-500 relative">
+            <div className="bg-gradient-to-br   rounded-2xl p-8 shadow-xl border-2 border-blue-500 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                   Найпопулярніший
@@ -59,9 +59,11 @@ const Pricing = () => {
               </div>
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Преміум</h3>
-                <div className="text-4xl font-bold text-white mb-2">₴4,999</div>
-                <p className="text-blue-100">одноразовий платіж</p>
+                <h3 className="text-2xl font-bold text-black mb-2">Преміум</h3>
+                <div className="text-4xl font-bold text-blue-600 mb-2">
+                  ₴4,999
+                </div>
+                <p className="text-gray-100">одноразовий платіж</p>
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -75,25 +77,16 @@ const Pricing = () => {
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400" />
-                    <span className="text-white">{feature}</span>
+                    <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <button className="w-full bg-white hover:bg-gray-100 text-blue-600 py-4 rounded-full font-semibold transition-colors duration-300">
+              <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300">
                 Обрати преміум
               </button>
             </div>
           </div>
-
-          {/* <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
-              Не впевнений? Спробуй безкоштовне тренування!
-            </p>
-            <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">
-              Безкоштовне тренування
-            </button>
-          </div> */}
         </div>
       </section>
     </>

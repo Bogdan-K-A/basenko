@@ -162,7 +162,7 @@ function App() {
       {/* Image Gallery */}
       <ImageGallery title="Наші тренування в дії" />
       {/* Key Benefits Section */}
-      <Benefits />
+      {/* <Benefits /> */}
       {/* Course Features Section */}
       <Course setIsVideoModalOpen={setIsVideoModalOpen} />
       {/* Testimonials Section */}
