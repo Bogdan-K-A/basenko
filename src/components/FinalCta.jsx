@@ -7,7 +7,7 @@ const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
       <section
         className="py-20 relative overflow-hidden"
         style={{
-          backgroundImage: 'url("./images/final-cta.jpg")',
+          backgroundImage: 'url("./images/final-cta.webp")',
           backgroundSize: "cover",
           backgroundPosition: "top",
           backgroundRepeat: "no-repeat",

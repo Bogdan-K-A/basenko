@@ -8,7 +8,7 @@ import Solution from "./components/Solution.jsx";
 import About from "./components/About.jsx";
 import Program from "./components/Program.jsx";
 import Results from "./components/Results.jsx";
-import Benefits from "./components/Benefits.jsx";
+// import Benefits from "./components/Benefits.jsx";
 import Course from "./components/Course.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Pricing from "./components/Pricing.jsx";
@@ -95,7 +95,6 @@ function App() {
       await sendMessage(message);
 
       // Показываем успех
-      // alert("Дякуємо! Ми зв'яжемося з вами найближчим часом.");
 
       // Reset form and show success
       setFormData({

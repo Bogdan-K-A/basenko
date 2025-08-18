@@ -4,18 +4,18 @@ const problems = [
     title: "Немає мотивації",
     description:
       "Хочеш почати бігати, але не знаєш з чого розпочати. Кожен раз відкладаєш 'на завтра'",
-    image: "./images/2.jpg",
+    image: "./images/2.webp",
   },
   {
     title: "Швидко втомлюєшся",
     description:
       "Після кількох хвилин бігу важко дихати, болять ноги і хочеться зупинитися",
-    image: "./images/2.jpeg",
+    image: "./images/1.webp",
   },
   {
     title: "Немає плану",
     description: "Бігаєш по 5–7 км тричі на тиждень і не бачиш прогресу?",
-    image: "./images/3.jpeg",
+    image: "./images/4.webp",
   },
 ];
 

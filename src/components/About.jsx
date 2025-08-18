@@ -9,7 +9,7 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="bg-gradient-to-br from-orange-400 to-red-400 w-100 h-100 mx-auto rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl overflow-hidden">
                 <img
-                  src="./images/trener.jpg"
+                  src="./images/trener.webp"
                   alt="Тренер"
                   className="w-full h-full object-cover"
                 />

@@ -8,7 +8,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="./images/5.png"
+            src="./images/5.webp"
             alt="Running training background"
             className="w-full h-full object-cover"
           />

@@ -21,7 +21,7 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                 <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full flex items-center justify-center">
                   {/* <Target className="w-6 h-6 text-white" /> */}
                   <img
-                    src="./images/logo.png"
+                    src="./images/logo.webp"
                     alt="Formula Bigu"
                     className="w-10 h-10"
                   />

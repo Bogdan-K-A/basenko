@@ -3,32 +3,32 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const galleryImages = [
   {
-    src: "./images/gallery/1.jpg",
+    src: "./images/gallery/1.webp",
     alt: "Тренування на стадіоні",
     caption: "Групові тренування на свіжому повітрі",
   },
   {
-    src: "./images/gallery/2.jpg",
+    src: "./images/gallery/2.webp",
     alt: "Біг у парку",
     caption: "Індивідуальні тренування в парку",
   },
   {
-    src: "./images/gallery/3.jpg",
+    src: "./images/gallery/3.webp",
     alt: "Розминка перед бігом",
     caption: "Правильна розминка - основа безпечного бігу",
   },
   {
-    src: "./images/gallery/4.jpg",
+    src: "./images/gallery/4.webp",
     alt: "Фініш забігу",
     caption: "Досягнення цілей разом з командою",
   },
   {
-    src: "./images/gallery/5.jpg",
+    src: "./images/gallery/5.webp",
     alt: "Тренування взимку",
     caption: "Тренуємося цілий рік незалежно від погоди",
   },
   {
-    src: "./images/gallery/6.jpg",
+    src: "./images/gallery/6.webp",
     alt: "Медитація після бігу",
     caption: "Відновлення та релаксація після тренування",
   },
