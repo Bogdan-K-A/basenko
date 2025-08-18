@@ -22,7 +22,7 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
               <h1 className="text-3xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                Твій біг. Твій ритм. Твій результат.
+                Біжи легко. Розвивайся без травм. Досягай свого результату
                 <br />
                 <span className="text-white text-4xl sm:text-4xl lg:text-5xl mt-4 block">
                   Приєднуйся до{" "}
