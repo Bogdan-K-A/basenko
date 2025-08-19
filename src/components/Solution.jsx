@@ -107,7 +107,7 @@ const Solution = () => {
                 <div className="space-y-4 mb-6">
                   {solution.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-6 h-6 text-green-300" />
+                      <CheckCircle className="w-6 h-6 text-green-300 shrink-0" />
                       <span className="text-white">{item}</span>
                     </div>
                   ))}

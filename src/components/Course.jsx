@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, PlayCircle } from "lucide-react";
+import { ArrowRight, PlayCircle } from "lucide-react";
 
 const Course = ({ setIsVideoModalOpen, scrollToSection }) => {
   return (

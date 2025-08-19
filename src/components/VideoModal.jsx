@@ -3,8 +3,14 @@ import { PlayCircle, X } from "lucide-react";
 const VideoModal = ({ setIsVideoModalOpen }) => {
   return (
     <>
-      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+      <div
+        onClick={() => setIsVideoModalOpen(false)}
+        className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+      >
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+        >
           <div className="flex justify-between items-center p-6 border-b">
             <h3 className="text-xl font-bold">
               Знайомство з курсом "Формула Бігу"
