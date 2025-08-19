@@ -113,7 +113,7 @@ const Solution = () => {
                   ))}
                 </div>
                 <p className="text-blue-50 text-2xl font-medium text-white text-center">
-                  Доступ до чату підтримки на завжди
+                  Доступ до чату підтримки назавжди
                 </p>
               </div>
             </div>

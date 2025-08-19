@@ -8,7 +8,6 @@ import Solution from "./components/Solution.jsx";
 import About from "./components/About.jsx";
 import Program from "./components/Program.jsx";
 import Results from "./components/Results.jsx";
-// import Benefits from "./components/Benefits.jsx";
 import Course from "./components/Course.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Pricing from "./components/Pricing.jsx";
@@ -18,11 +17,13 @@ import Footer from "./components/Footer.jsx";
 import VideoModal from "./components/VideoModal.jsx";
 import FormModal from "./components/FormModal.jsx";
 import { sendMessage } from "./api/telegramBot.js";
+import RevievsVideoModal from "./components/RevievsVideoModal.jsx";
 
 function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isRevievsVideoModalOpen, setIsRevievsVideoModalOpen] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -64,7 +65,14 @@ function App() {
     () => setIsContactFormOpen(false),
     []
   );
-
+  const handleRevievsVideoModalOpen = useCallback(
+    () => setIsRevievsVideoModalOpen(true),
+    []
+  );
+  const handleRevievsVideoModalClose = useCallback(
+    () => setIsRevievsVideoModalOpen(false),
+    []
+  );
   // Form handlers
   const handleInputChange = useCallback((e) => {
     const { name, value, type } = e.target;
@@ -212,15 +220,14 @@ function App() {
       <Results />
       {/* Image Gallery */}
       <ImageGallery title="Наші тренування в дії" />
-      {/* Key Benefits Section */}
-      {/* <Benefits /> */}
+
       {/* Course Features Section */}
       <Course
         setIsVideoModalOpen={handleVideoModalOpen}
         scrollToSection={scrollToSection}
       />
       {/* Testimonials Section */}
-      <Testimonials />
+      <Testimonials handleRevievsVideoModalOpen={handleRevievsVideoModalOpen} />
       {/* Pricing Section */}
       <Pricing />
       {/* FAQ Section */}
@@ -232,6 +239,12 @@ function App() {
       {/* Video Modal */}
       {isVideoModalOpen && (
         <VideoModal setIsVideoModalOpen={handleVideoModalClose} />
+      )}
+      {/* Revievs Video Modal */}
+      {isRevievsVideoModalOpen && (
+        <RevievsVideoModal
+          setRevievsVideoModalOpen={handleRevievsVideoModalClose}
+        />
       )}
       {/* Contact Form Modal */}
       {isContactFormOpen && <FormModal {...formModalProps} />}

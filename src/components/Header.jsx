@@ -1,4 +1,4 @@
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, Send, Instagram } from "lucide-react";
 const navBar = [
   { label: "Про курс", id: "solution" },
   { label: "Тренер", id: "about" },
@@ -62,14 +62,22 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                       +380 (63) 260 26 91
                     </a>
                   </div>
-
-                  <a
-                    href="https://t.me/baskarabas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Telegram: @baskarabas
-                  </a>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://t.me/baskarabas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Send className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/basenko_sergiy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,13 +120,22 @@ const Header = ({ scrollToSection, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                       +380 (63) 260 26 91
                     </a>
                   </div>
-                  <a
-                    href="https://t.me/baskarabas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Telegram: @baskarabas
-                  </a>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://t.me/baskarabas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Send className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/basenko_sergiy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
