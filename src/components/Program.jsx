@@ -13,64 +13,57 @@ const courseModules = [
     day: "Понеділок",
     title: "Бігові темпові інтервали (онлайн)",
     description:
-      "Відпрацювання правильної техніки бігу, постановка стопи, робота з ритмом дихання",
+      "Короткі прискорення з контролем дихання, розвиток техніки та витривалості.",
     icon: Timer, // Таймер для темповых интервалов
-    image:
-      "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/1.jpg",
   },
   {
     day: "Вівторок",
     title: "Біг спіралі (онлайн)",
     description:
-      "Функціональні вправи для зміцнення м'язів кора, ніг та профілактики травм",
+      "Біг по колу чи звивистій траєкторії, зміцнення м’язів ніг і кора.",
     icon: Activity, // Активность для спирального бега
-    image:
-      "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/2.jpg",
   },
   {
     day: "Середа",
     title: "Мобіліті + гнучькість (запис)",
     description:
-      "Функціональні вправи для зміцнення м'язів кора, ніг та профілактики травм",
+      "Розтяжка та вправи для рухливості суглобів, профілактика травм і покращення гнучкості.",
     icon: Move, // Движение для мобильности и гибкости
-    image:
-      "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/3.jpg",
   },
   {
     day: "Четвер",
     title: "Біг Фартлек (онлайн)",
     description:
-      "Високоінтенсивні інтервальні тренування для розвитку швидкості та витривалості",
+      "Чергуються швидкі та повільні відрізки, тренування швидкості й витривалості.",
     icon: Zap, // Молния для высокоинтенсивных тренировок
-    image:
-      "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/4.jpg",
   },
   {
     day: "П'ятниця",
     title: "Табата (запис)",
     description:
-      "Високоінтенсивні інтервальні тренування для розвитку швидкості та витривалості",
+      "Інтенсивні інтервальні вправи, розвиток сили, швидкості та витривалості.",
     icon: Clock, // Часы для табата (временные интервалы)
-    image:
-      "https://images.pexels.com/photos/1571939/pexels-photo-1571939.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/5.jpg",
   },
   {
     day: "Субота",
     title: "Лонг Ран (онлайн)",
     description:
-      "Довгі пробіжки для розвитку аеробної витривалості та групова мотивація",
+      "Довгі пробіжки у спокійному темпі, розвиток аеробної витривалості.",
     icon: Users, // Группа для длительных пробежек
-    image:
-      "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/6.jpg",
   },
   {
     day: "Неділя",
     title: "Відновлення + мобіліті (запис)",
     description:
-      "Довгі пробіжки для розвитку аеробної витривалості та групова мотивація",
+      "Легка розминка і вправи для відновлення, зниження втоми, підтримка тонусу.",
     icon: RefreshCw, // Обновление для восстановления
-    image:
-      "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+    image: "./images/program/7.jpg",
   },
 ];
 

@@ -1,5 +1,22 @@
 import { CheckCircle } from "lucide-react";
 
+const basePlan = [
+  "4 тижні тренувальної програми",
+  "Голосовий супровід під час тренувань",
+  "Підказки онлайн у реальному часі",
+  "Доступ до чату спільноти назавжди",
+  "Відповіді та підтримка куратора потоку",
+];
+
+const premiumPlan = [
+  "Індивідуальне спілкування з тренером",
+  "Персональний розбір бігової техніки",
+  "Консультації з пульсових зон та тренувальних навантажень",
+  "Поради щодо екіпірування та вибору взуття",
+  "Оперативна підтримка 24/7",
+  "Рекомендації з харчування та відновлення",
+];
+
 const Pricing = () => {
   return (
     <>
@@ -25,20 +42,15 @@ const Pricing = () => {
                   Базовий
                 </h3>
                 <div className="text-4xl font-bold text-blue-600 mb-2">
-                  ₴2,999
+                  ₴850
                 </div>
                 <p className="text-gray-600">одноразовий платіж</p>
               </div>
 
               <ul className="space-y-4 mb-8">
-                {[
-                  "12-тижневий план тренувань",
-                  "Голосовий супровід",
-                  "Доступ до спільноти",
-                  "Базова підтримка",
-                ].map((feature, index) => (
+                {basePlan.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <CheckCircle className="w-6 h-6 text-green-300 shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -65,29 +77,22 @@ const Pricing = () => {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black mb-2">Преміум</h3>
                 <div className="text-4xl font-bold text-blue-600 mb-2">
-                  ₴850
+                  ₴4,000
                 </div>
                 <p className="text-gray-100">одноразовий платіж</p>
               </div>
 
               <ul className="space-y-4 mb-8">
-                {[
-                  "Все з базового тарифу",
-                  "Індивідуальні консультації",
-                  "Персональний план харчування",
-                  "Пріоритетна підтримка",
-                  "Сертифікат завершення",
-                  "Доступ до архіву тренувань",
-                ].map((feature, index) => (
+                {premiumPlan.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <CheckCircle className="w-6 h-6 text-green-300 shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <a
-                href="https://secure.wayforpay.com/button/b90a054f1359d"
+                href="https://secure.wayforpay.com/button/b7637b12a75a7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300 inline-block text-center"
