@@ -46,7 +46,9 @@ const FinalCta = ({ setIsContactFormOpen, scrollToSection }) => {
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div>
               <Calendar className="w-8 h-8 text-blue-200 mx-auto mb-2" />
-              <p className="text-blue-100">Гарантія повернення коштів 5 днів</p>
+              <p className="text-blue-100">
+                Гарантія повернення коштів 14 днів
+              </p>
             </div>
             <div>
               <Shield className="w-8 h-8 text-blue-200 mx-auto mb-2" />
