@@ -68,11 +68,11 @@ const Pricing = () => {
 
             {/* Premium Plan */}
             <div className="bg-gradient-to-br   rounded-2xl p-8 shadow-xl border-2 border-blue-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              {/* <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                   Найпопулярніший
                 </span>
-              </div>
+              </div> */}
 
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black mb-2">Преміум</h3>

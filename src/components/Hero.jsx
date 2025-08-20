@@ -16,19 +16,20 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10  mx-auto px-4 sm:px-6 lg:px-8 h-screen ">
-          <div className="grid lg:grid-cols-2 gap-12 h-full items-end pb-10">
+        <div className="relative z-10  mx-auto px-4 sm:px-6 lg:px-8 h-screen mt-6 ">
+          <div className="grid lg:grid-cols-2 h-full items-end pb-10">
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
-              <h1 className="text-1xl mt-20 sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                Біжи легко. Розвивайся без травм. Досягай свого результату
+              <h1 className="text-2xl  sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+                Біжи легко. Розвивайся без травм. Досягай свого результату.
                 <br />
                 <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block">
                   Приєднуйся до{" "}
-                  <span className="text-red-600 font-extrabold">
-                    Формули Бігу!
+                  <span className="text-red-600 font-extrabold mr-2">
+                    Формули
                   </span>
+                  <span className="text-red-600 font-extrabold">Бігу!</span>
                 </span>
               </h1>
 

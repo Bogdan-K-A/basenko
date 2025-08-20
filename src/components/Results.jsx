@@ -16,7 +16,7 @@ const Results = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
-                Твої результати через 8 тижнів
+                Твої результати через 4 тижні
               </h2>
               <p className="text-xl text-gray-600">
                 Гарантовані зміни при виконанні програми курсу
