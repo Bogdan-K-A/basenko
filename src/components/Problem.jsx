@@ -14,7 +14,7 @@ const problems = [
   },
   {
     title: "Немає плану",
-    description: "Бігаєш по 5–7 км тричі на тиждень і не бачиш прогресу?",
+    description: "Бігати можна часто, але без плану, прогресу не буде.",
     image: "./images/4.webp",
   },
 ];
@@ -56,9 +56,11 @@ const Problem = ({ scrollToSection }) => {
 
             <div className="text-center mt-16 mb-16">
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                <strong className="text-orange-500">Ти не один!</strong> 87%
-                людей кидають біг через перший місяць через відсутність
-                правильної методики та підтримки.
+                <strong>
+                  Саме тому 87% людей кидають біг у перший місяць{" "}
+                </strong>
+                — вони лишаються без чіткої методики й підтримки. Ти можеш
+                уникнути цієї помилки.
               </p>
             </div>
             <div className="flex  justify-center ">
