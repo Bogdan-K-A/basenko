@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import { siteConfig } from "../config/site";
 
 const basePlan = [
   "4 тижні тренувальної програми",
@@ -18,6 +19,11 @@ const premiumPlan = [
 ];
 
 const Pricing = () => {
+  const handlePlanSelect = (plan) => {
+    // Сохраняем выбранный план в localStorage
+    localStorage.setItem("selectedPlan", plan);
+  };
+
   return (
     <>
       <section
@@ -57,7 +63,12 @@ const Pricing = () => {
               </ul>
 
               <a
-                href="https://secure.wayforpay.com/button/b90a054f1359d"
+                onClick={() => handlePlanSelect("basic")}
+                href={`https://secure.wayforpay.com/button/${
+                  siteConfig.wayforpay.basicButton
+                }?returnUrl=${encodeURIComponent(
+                  `${siteConfig.domain}thank-you`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300 inline-block text-center"
@@ -68,12 +79,6 @@ const Pricing = () => {
 
             {/* Premium Plan */}
             <div className="bg-gradient-to-br   rounded-2xl p-8 shadow-xl border-2 border-blue-500 relative">
-              {/* <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                  Найпопулярніший
-                </span>
-              </div> */}
-
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-black mb-2">Преміум</h3>
                 <div className="text-4xl font-bold text-blue-600 mb-2">
@@ -92,7 +97,12 @@ const Pricing = () => {
               </ul>
 
               <a
-                href="https://secure.wayforpay.com/button/b7637b12a75a7"
+                onClick={() => handlePlanSelect("premium")}
+                href={`https://secure.wayforpay.com/button/${
+                  siteConfig.wayforpay.premiumButton
+                }?returnUrl=${encodeURIComponent(
+                  `${siteConfig.domain}thank-you`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full font-semibold transition-colors duration-300 inline-block text-center"
