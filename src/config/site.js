@@ -1,7 +1,7 @@
 // Конфигурация сайта
 export const siteConfig = {
   // Замените на ваш реальный домен
-  domain: "https://www.basenko.team/" || "http://localhost:5173", // для разработки
+  domain: "https://www.basenko.team/", // || "http://localhost:5173", // для разработки
 
   // Настройки Wayforpay
   wayforpay: {
