@@ -47,12 +47,16 @@ const Pricing = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Базовий
                 </h3>
+                {/* Старая цена (зачёркнута) */}
+                <div className="text-3xl text-gray-400 line-through mb-1 ">
+                  ₴2,000
+                </div>
+                {/* Новая актуальная цена */}
                 <div className="text-4xl font-bold text-blue-600 mb-2">
-                  ₴850
+                  ₴1,250
                 </div>
                 <p className="text-gray-600">одноразовий платіж</p>
               </div>
-
               <ul className="space-y-4 mb-8">
                 {basePlan.map((feature, index) => (
                   <li key={index} className="flex items-center gap-3">
@@ -61,7 +65,6 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-
               <a
                 onClick={() => handlePlanSelect("basic")}
                 href={`https://secure.wayforpay.com/button/${
