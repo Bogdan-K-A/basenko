@@ -22,10 +22,10 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
             <div className="text-center lg:text-left space-y-8">
               {/* Main Headline */}
               <h1 className="text-2xl  sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                Біжи легко. Розвивайся без травм. Досягай свого результату.
+                Високий пульс? Одноманітні тренування? Не зростає темп?
                 <br />
                 <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block">
-                  Приєднуйся до{" "}
+                  Рішення є{" "}
                   <span className="text-red-600 font-extrabold mr-2">
                     Формули
                   </span>

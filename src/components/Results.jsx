@@ -8,6 +8,46 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+// Массив данных для карточек результатов
+const resultsData = [
+  {
+    Icon: TrendingUp,
+    gradient: "from-green-400 to-green-500",
+    title: "Покращиш темп",
+    desc: "Тренування підвищать ефективність бігу, ти почуватимешся легше й швидше вже через кілька днів",
+  },
+  {
+    Icon: Heart,
+    gradient: "from-blue-400 to-blue-500",
+    title: "Знизиш пульс",
+    desc: "Серце працюватиме спокійніше, нормалізується тиск і зменшиться навантаження на організм",
+  },
+  {
+    Icon: Zap,
+    gradient: "from-purple-400 to-purple-500",
+    title: "Підвищиш витривалість",
+    desc: "Поступово збільшиш дистанцію без перевтоми, отримаєш більше енергії для щоденного життя",
+  },
+  {
+    Icon: Target,
+    gradient: "from-orange-400 to-orange-500",
+    title: "Гарантовано Схуднеш від 3-5 кг",
+    desc: "Природне спалювання жиру та формування красивого рельєфу тіла",
+  },
+  {
+    Icon: Award,
+    gradient: "from-red-400 to-red-500",
+    title: "Підвищиш самооцінку",
+    desc: "Відчуття гордості за досягнення та нова впевненість у собі",
+  },
+  {
+    Icon: Users,
+    gradient: "from-teal-400 to-teal-500",
+    title: "Знайдеш однодумців",
+    desc: "Станеш частиною спільноти активних і мотивованих людей",
+  },
+];
+
 const Results = () => {
   return (
     <section id="results" className="py-20 bg-white">
@@ -23,80 +63,23 @@ const Results = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-green-400 to-green-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <TrendingUp className="w-10 h-10 text-white" />
+            {/** Мапинг по массиву данных */}
+            {resultsData.map(({ Icon, gradient, title, desc }) => (
+              <div
+                key={title}
+                className="text-center group hover:transform hover:scale-105 transition-all duration-300"
+              >
+                <div
+                  className={`bg-gradient-to-br ${gradient} w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg`}
+                >
+                  <Icon className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  {title}
+                </h3>
+                <p className="text-gray-600">{desc}</p>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Пробіжиш 5-10 км
-              </h3>
-              <p className="text-gray-600">
-                Без задишки і дискомфорту долатимеш дистанції, про які раніше не
-                мріяв
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-blue-400 to-blue-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <Heart className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Покращиш показники пульсу
-              </h3>
-              <p className="text-gray-600">
-                Нормалізується тиск, покращиться робота серця, зміцниться
-                імунітет
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-purple-400 to-purple-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <Zap className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Отримаєш енергію
-              </h3>
-              <p className="text-gray-600">
-                Твоє життя систематизуеться, підвищиться працездатність,
-                покращиться настрій і якість сну
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <Target className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Гарантовано Схуднеш від 3-5 кг
-              </h3>
-              <p className="text-gray-600">
-                Природне спалювання жиру та формування красивого рельєфу тіла
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-red-400 to-red-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <Award className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Підвищиш самооцінку
-              </h3>
-              <p className="text-gray-600">
-                Відчуття гордості за досягнення та нова впевненість у собі
-              </p>
-            </div>
-
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-teal-400 to-teal-500 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:shadow-lg">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Знайдеш однодумців
-              </h3>
-              <p className="text-gray-600">
-                Станеш частиною спільноти активних і мотивованих людей
-              </p>
-            </div>
+            ))}
           </div>
 
           <div className="text-center mt-16">

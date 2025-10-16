@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const CountdownTimer = () => {
-  const targetDate = new Date("2025-09-22T00:00:00"); //конечная точка отсчета
+  const targetDate = new Date("2025-10-20T00:00:00"); //конечная точка отсчета
 
   // Целевая дата: через 16 дней, 6 часов, 12 минут, 5 секунд от текущего времени
   // const getTargetDate = () => {

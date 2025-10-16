@@ -17,12 +17,21 @@ import { sendMessage } from "../api/telegramBot.js";
 import VideoModal from "../components/VideoModal.jsx";
 import RevievsVideoModal from "../components/RevievsVideoModal.jsx";
 import FormModal from "../components/FormModal.jsx";
+import VideoGallery from "../components/VideoGallery.jsx";
+
+// Простой хук для модалок: open/close + состояние
+const useModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const open = useCallback(() => setIsOpen(true), []);
+  const close = useCallback(() => setIsOpen(false), []);
+  return { isOpen, open, close };
+};
 
 const Home = () => {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const videoModal = useModal();
+  const contactForm = useModal();
+  const reviewsVideoModal = useModal();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isRevievsVideoModalOpen, setIsRevievsVideoModalOpen] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -51,27 +60,7 @@ const Home = () => {
     setIsMobileMenuOpen(false); // Close mobile menu after clicking
   }, []);
 
-  const handleVideoModalOpen = useCallback(() => setIsVideoModalOpen(true), []);
-  const handleVideoModalClose = useCallback(
-    () => setIsVideoModalOpen(false),
-    []
-  );
-  const handleContactFormOpen = useCallback(
-    () => setIsContactFormOpen(true),
-    []
-  );
-  const handleContactFormClose = useCallback(
-    () => setIsContactFormOpen(false),
-    []
-  );
-  const handleRevievsVideoModalOpen = useCallback(
-    () => setIsRevievsVideoModalOpen(true),
-    []
-  );
-  const handleRevievsVideoModalClose = useCallback(
-    () => setIsRevievsVideoModalOpen(false),
-    []
-  );
+  // Обработчики open/close заменены на useModal
   // Form handlers
   const handleInputChange = useCallback((e) => {
     const { name, value, type } = e.target;
@@ -129,7 +118,7 @@ const Home = () => {
 
         // Close modal after 3 seconds
         setTimeout(() => {
-          setIsContactFormOpen(false);
+          contactForm.close();
           setSubmitSuccess(false);
         }, 3000);
       } catch (error) {
@@ -161,22 +150,22 @@ const Home = () => {
   const heroProps = useMemo(
     () => ({
       scrollToSection,
-      setIsVideoModalOpen: handleVideoModalOpen,
+      setIsVideoModalOpen: videoModal.open,
     }),
-    [scrollToSection, handleVideoModalOpen]
+    [scrollToSection, videoModal.open]
   );
 
   const finalCtaProps = useMemo(
     () => ({
-      setIsContactFormOpen: handleContactFormOpen,
+      setIsContactFormOpen: contactForm.open,
       scrollToSection,
     }),
-    [handleContactFormOpen, scrollToSection]
+    [contactForm.open, scrollToSection]
   );
 
   const formModalProps = useMemo(
     () => ({
-      setIsContactFormOpen: handleContactFormClose,
+      setIsContactFormOpen: contactForm.close,
       submitSuccess,
       isSubmitting,
       submitError,
@@ -186,7 +175,7 @@ const Home = () => {
       resetForm,
     }),
     [
-      handleContactFormClose,
+      contactForm.close,
       submitSuccess,
       isSubmitting,
       submitError,
@@ -218,15 +207,19 @@ const Home = () => {
       {/* Results/Benefits */}
       <Results />
       {/* Image Gallery */}
-      <ImageGallery title="Наші тренування в дії" />
+      {/* <ImageGallery title="Наші тренування в дії" /> */}
+      <VideoGallery
+        title="Наші тренування в дії"
+        setIsVideoModalOpen={videoModal.open}
+      />
 
       {/* Course Features Section */}
       <Course
-        setIsVideoModalOpen={handleVideoModalOpen}
+        setIsVideoModalOpen={videoModal.open}
         scrollToSection={scrollToSection}
       />
       {/* Testimonials Section */}
-      <Testimonials handleRevievsVideoModalOpen={handleRevievsVideoModalOpen} />
+      <Testimonials handleRevievsVideoModalOpen={reviewsVideoModal.open} />
       {/* Pricing Section */}
       <Pricing />
       {/* FAQ Section */}
@@ -237,17 +230,15 @@ const Home = () => {
       <Footer />
 
       {/* Video Modal */}
-      {isVideoModalOpen && (
-        <VideoModal setIsVideoModalOpen={handleVideoModalClose} />
+      {videoModal.isOpen && (
+        <VideoModal setIsVideoModalOpen={videoModal.close} />
       )}
       {/* Revievs Video Modal */}
-      {isRevievsVideoModalOpen && (
-        <RevievsVideoModal
-          setRevievsVideoModalOpen={handleRevievsVideoModalClose}
-        />
+      {reviewsVideoModal.isOpen && (
+        <RevievsVideoModal setRevievsVideoModalOpen={reviewsVideoModal.close} />
       )}
       {/* Contact Form Modal */}
-      {isContactFormOpen && <FormModal {...formModalProps} />}
+      {contactForm.isOpen && <FormModal {...formModalProps} />}
     </div>
   );
 };
