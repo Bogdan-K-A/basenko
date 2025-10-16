@@ -27,10 +27,9 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
                 <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block ">
                   Рішення є{"  "}
                   <br className="block sm:hidden" />
-                  <span className="text-red-600 font-extrabold mr-2">
-                    Формули
+                  <span className="text-red-600 font-extrabold">
+                    Формула Бігу!
                   </span>
-                  <span className="text-red-600 font-extrabold">Бігу!</span>
                 </span>
               </h1>
 
