@@ -29,6 +29,7 @@ const useModal = () => {
 
 const Home = () => {
   const videoModal = useModal();
+  const [currentVideo, setCurrentVideo] = useState({ src: "", title: "" }); // выбранное видео
   const contactForm = useModal();
   const reviewsVideoModal = useModal();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -186,6 +187,24 @@ const Home = () => {
     ]
   );
 
+  // Открыть видео курса
+  const openCourseVideo = useCallback(() => {
+    setCurrentVideo({
+      src: "./video/2.mp4",
+      title: 'Знайомство з курсом "Формула Бігу"',
+    });
+    videoModal.open();
+  }, [videoModal.open]);
+
+  // Открыть видео галереи
+  const openGalleryVideo = useCallback(() => {
+    setCurrentVideo({
+      src: "./video/record.mp4",
+      title: "Наші тренування в дії",
+    });
+    videoModal.open();
+  }, [videoModal.open]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Header */}
@@ -210,12 +229,12 @@ const Home = () => {
       {/* <ImageGallery title="Наші тренування в дії" /> */}
       <VideoGallery
         title="Наші тренування в дії"
-        setIsVideoModalOpen={videoModal.open}
+        setIsVideoModalOpen={openGalleryVideo}
       />
 
       {/* Course Features Section */}
       <Course
-        setIsVideoModalOpen={videoModal.open}
+        setIsVideoModalOpen={openCourseVideo}
         scrollToSection={scrollToSection}
       />
       {/* Testimonials Section */}
@@ -231,7 +250,11 @@ const Home = () => {
 
       {/* Video Modal */}
       {videoModal.isOpen && (
-        <VideoModal setIsVideoModalOpen={videoModal.close} />
+        <VideoModal
+          setIsVideoModalOpen={videoModal.close}
+          src={currentVideo.src}
+          title={currentVideo.title}
+        />
       )}
       {/* Revievs Video Modal */}
       {reviewsVideoModal.isOpen && (

@@ -21,7 +21,7 @@ const VideoGallery = ({ title, setIsVideoModalOpen }) => {
               className="relative mx-auto cursor-pointer hover:scale-110 transition-all duration-300 "
             >
               <img
-                src="./images/11.webp"
+                src="./images/12.webp"
                 alt="Running training session"
                 className="rounded-2xl shadow-2xl w-full h-full object-cover"
               />

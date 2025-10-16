@@ -1,6 +1,7 @@
 import { PlayCircle, X } from "lucide-react";
 
-const VideoModal = ({ setIsVideoModalOpen }) => {
+// Модалка для проигрывания видео; источник и заголовок приходят через пропсы
+const VideoModal = ({ setIsVideoModalOpen, src, title }) => {
   return (
     <>
       <div
@@ -12,9 +13,7 @@ const VideoModal = ({ setIsVideoModalOpen }) => {
           className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
         >
           <div className="flex justify-between items-center p-6 border-b">
-            <h3 className="text-xl font-bold">
-              Знайомство з курсом "Формула Бігу"
-            </h3>
+            <h3 className="text-xl font-bold">{title}</h3>
             <button
               onClick={() => setIsVideoModalOpen(false)}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -24,13 +23,13 @@ const VideoModal = ({ setIsVideoModalOpen }) => {
           </div>
 
           <div className="p-6">
-            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center">
-              <div className="text-center ">
+            <div className="bg-gray-100 rounded-xl flex items-center justify-center">
+              <div className="text-center w-full">
                 <video
-                  src="./video/2.mp4"
+                  src={src}
                   controls
                   autoPlay
-                  className="h-full w-full rounded-xl"
+                  className="w-full h-auto max-h-[70vh] rounded-xl object-contain"
                 />
               </div>
             </div>
