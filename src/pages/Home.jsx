@@ -147,13 +147,32 @@ const Home = () => {
     setSubmitError(""); // Сбрасываем ошибку
   }, []);
 
+  // Открыть видео курса
+  const openCourseVideo = useCallback(() => {
+    setCurrentVideo({
+      src: "./video/2.mp4",
+      title: 'Знайомство з курсом "Формула Бігу"',
+    });
+    videoModal.open();
+  }, [videoModal.open]);
+
+  // Открыть видео галереи
+  const openGalleryVideo = useCallback(() => {
+    setCurrentVideo({
+      src: "./video/record.mp4",
+      title: "Наші тренування в дії",
+    });
+    videoModal.open();
+  }, [videoModal.open]);
+
   // Мемоизированные пропсы для компонентов
   const heroProps = useMemo(
     () => ({
       scrollToSection,
-      setIsVideoModalOpen: videoModal.open,
+      // Открывает модалку и заранее устанавливает видео 2.mp4
+      setIsVideoModalOpen: openCourseVideo,
     }),
-    [scrollToSection, videoModal.open]
+    [scrollToSection, openCourseVideo]
   );
 
   const finalCtaProps = useMemo(
@@ -186,24 +205,6 @@ const Home = () => {
       resetForm,
     ]
   );
-
-  // Открыть видео курса
-  const openCourseVideo = useCallback(() => {
-    setCurrentVideo({
-      src: "./video/2.mp4",
-      title: 'Знайомство з курсом "Формула Бігу"',
-    });
-    videoModal.open();
-  }, [videoModal.open]);
-
-  // Открыть видео галереи
-  const openGalleryVideo = useCallback(() => {
-    setCurrentVideo({
-      src: "./video/record.mp4",
-      title: "Наші тренування в дії",
-    });
-    videoModal.open();
-  }, [videoModal.open]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
