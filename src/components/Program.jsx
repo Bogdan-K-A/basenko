@@ -6,6 +6,7 @@ import {
   Move,
   Clock,
   RefreshCw,
+  CircleDot,
 } from "lucide-react";
 
 const courseModules = [
@@ -65,6 +66,14 @@ const courseModules = [
     icon: RefreshCw, // Обновление для восстановления
     image: "./images/program/7.jpg",
   },
+  {
+    day: "Бонусні тренування",
+    title: "Тренування з BlackRoll",
+    description:
+      "Для профілактики болю та швидкого відновлення. Допомагають позбутися неприємних відчуттів у спині та ногах.",
+    icon: CircleDot, // Точечное воздействие для BlackRoll
+    image: "./images/program/8.png",
+  },
 ];
 
 const Program = () => {
@@ -88,58 +97,10 @@ const Program = () => {
 
           {/* Верхний ряд: 4 элемента */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 justify-items-center items-stretch">
-            {courseModules.slice(0, 4).map((training, index) => {
+            {courseModules.map((training, index) => {
               return (
                 <div key={index} className="group h-full w-full max-w-[22rem]">
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden flex flex-col">
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={training.image}
-                        alt={training.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-
-                      {/* Day Badge */}
-                      <div
-                        className={`absolute top-4 left-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold`}
-                      >
-                        {training.day}
-                      </div>
-
-                      {/* Icon */}
-                      <div
-                        className={`absolute bottom-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center`}
-                      >
-                        <training.icon className={`w-6 h-6`} />
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">
-                        {training.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {training.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Нижний ряд: 3 элемента, по центру */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-stretch">
-            {courseModules.slice(4).map((training, index) => {
-              return (
-                <div
-                  key={index}
-                  className="group h-full w-full lg:max-w-[18rem]  max-w-[22rem]"
-                >
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden h-full flex flex-col">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
                       <img
