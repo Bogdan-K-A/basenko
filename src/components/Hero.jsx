@@ -24,8 +24,9 @@ const Hero = ({ scrollToSection, setIsVideoModalOpen }) => {
               <h1 className="text-2xl  sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
                 Високий пульс? Одноманітні тренування? Не зростає темп?
                 <br />
-                <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block">
-                  Рішення є{" "}
+                <span className="text-white text-3xl sm:text-4xl lg:text-5xl mt-4 block ">
+                  Рішення є{"  "}
+                  <br className="block sm:hidden" />
                   <span className="text-red-600 font-extrabold mr-2">
                     Формули
                   </span>
