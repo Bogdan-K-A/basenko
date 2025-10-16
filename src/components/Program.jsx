@@ -72,7 +72,7 @@ const courseModules = [
     description:
       "Для профілактики болю та швидкого відновлення. Допомагають позбутися неприємних відчуттів у спині та ногах.",
     icon: CircleDot, // Точечное воздействие для BlackRoll
-    image: "./images/program/8.png",
+    image: "./images/program/8.jpg",
   },
 ];
 
