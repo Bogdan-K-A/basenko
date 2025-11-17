@@ -1,7 +1,53 @@
 import React, { useEffect, useState } from "react";
 
 const CountdownTimer = () => {
-  const targetDate = new Date("2025-10-20T00:00:00"); //конечная точка отсчета
+  // Дефолтная дата (fallback)
+  const defaultDate = new Date("2025-10-20T00:00:00");
+  const [targetDate, setTargetDate] = useState(defaultDate);
+
+  // Загрузка даты из JSON файла (основной источник для всех пользователей)
+  useEffect(() => {
+    const loadTargetDate = async () => {
+      try {
+        // Загружаем из JSON файла (основной источник)
+        const response = await fetch("/timer.json?t=" + Date.now());
+        if (response.ok) {
+          const data = await response.json();
+          if (data.targetDate) {
+            const newDate = new Date(data.targetDate);
+            setTargetDate(newDate);
+            // Обновляем localStorage для синхронизации
+            localStorage.setItem("timerTargetDate", newDate.toISOString());
+            return;
+          }
+        }
+
+        // Если JSON недоступен, проверяем localStorage (fallback)
+        const savedDate = localStorage.getItem("timerTargetDate");
+        if (savedDate) {
+          setTargetDate(new Date(savedDate));
+          return;
+        }
+      } catch (error) {
+        console.error("Ошибка загрузки даты таймера:", error);
+        // Fallback на localStorage при ошибке сети
+        const savedDate = localStorage.getItem("timerTargetDate");
+        if (savedDate) {
+          setTargetDate(new Date(savedDate));
+        } else {
+          // Используем дефолтную дату при ошибке
+          setTargetDate(defaultDate);
+        }
+      }
+    };
+
+    // Загружаем сразу
+    loadTargetDate();
+
+    // Проверяем обновления каждые 30 секунд (для синхронизации с сервером)
+    const interval = setInterval(loadTargetDate, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Целевая дата: через 16 дней, 6 часов, 12 минут, 5 секунд от текущего времени
   // const getTargetDate = () => {
@@ -16,9 +62,9 @@ const CountdownTimer = () => {
 
   // const targetDate = getTargetDate();
 
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = (date) => {
     const now = new Date();
-    const difference = targetDate - now;
+    const difference = date - now;
 
     if (difference <= 0) {
       return {
@@ -46,14 +92,20 @@ const CountdownTimer = () => {
     };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDate));
 
+  // Обновление таймера при изменении целевой даты
+  useEffect(() => {
+    setTimeLeft(calculateTimeLeft(targetDate));
+  }, [targetDate]);
+
+  // Таймер обновляется каждую секунду
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [targetDate]);
 
   const timeUnits = [
     { label: "Днів", value: timeLeft.days },
