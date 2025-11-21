@@ -49,13 +49,13 @@ const Pricing = () => {
                 </h3>
                 {/* Старая цена (зачёркнута) */}
                 <div className="text-3xl text-gray-400 line-through mb-1 ">
-                  ₴1,250
+                  ₴2,000
                 </div>
                 {/* Новая актуальная цена */}
                 <div className="text-4xl font-bold text-blue-600 mb-2">
-                  ₴920
+                  ₴1,200
                 </div>
-                <p className="text-gray-600">з 18.11 по 20.11</p>
+                {/* <p className="text-gray-600">з 18.11 по 20.11</p> */}
                 <p className="text-gray-600">одноразовий платіж</p>
               </div>
               <ul className="space-y-4 mb-8">
